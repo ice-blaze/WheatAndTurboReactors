@@ -33,10 +33,7 @@ namespace WpfApplication1
             planetImage.Width = 5;
 
             brush = new SolidColorBrush(Colors.White);
-            
-
             planetImage.Fill = brush;
-
 
         }
 

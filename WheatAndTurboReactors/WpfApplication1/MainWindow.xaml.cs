@@ -20,6 +20,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        Minimap minimap;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +28,9 @@ namespace WpfApplication1
 
         private void MiniMap_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Canvas canvas = sender as Canvas;
             Console.WriteLine("minimap");
+            minimap.checkIfPlanetIsClicked(e, canvas);
         }
 
         private void Info_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -47,8 +50,9 @@ namespace WpfApplication1
 
         private void Minimap_Canvas_Loaded(object sender, RoutedEventArgs e)
         {
+            minimap = new Minimap();
             Canvas canvas = sender as Canvas;
-            Minimap.initMinimap(canvas);
+            minimap.initMinimap(canvas);
         }
     }
 }

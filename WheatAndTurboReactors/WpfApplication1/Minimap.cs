@@ -21,11 +21,11 @@ namespace WpfApplication1
 {
     class Minimap
     {
+
+        public List<Planet> planetList;
         
 
-        
-
-        public static void initMinimap(Canvas canvas)
+        public void initMinimap(Canvas canvas)
         {
 
             //replace this by reading from a file
@@ -47,8 +47,30 @@ namespace WpfApplication1
                 Canvas.SetTop(planet.planetImage, planet.y);
                 canvas.Children.Add(planet.planetImage);
             }
-            
-            
+        }
+
+        public void checkIfPlanetIsClicked(MouseButtonEventArgs e, Canvas canvas)
+        {
+            //this should instanciated
+            //-------------------------------------------------------------------------------------
+            Planet lonelyPlanet = new Planet(20, 20, 0, 0, 0, 0, 0, 0);
+            Planet farAwayPlanet = new Planet(200, 200, 0, 0, 0, 0, 0, 0);
+            Planet thisGuy = new Planet(40, 30, 0, 0, 0, 0, 0, 0);
+
+            List<Planet> planetList = new List<Planet>();
+
+            planetList.Add(lonelyPlanet);
+            planetList.Add(farAwayPlanet);
+            planetList.Add(thisGuy);
+            //-------------------------------------------------------------------------------------
+
+            foreach (Planet planet in planetList)
+            {
+                if(e.GetPosition(canvas).X == planet.x)
+                {
+                    Console.WriteLine("planet is clicked");
+                }
+            }
         }
 
     }
