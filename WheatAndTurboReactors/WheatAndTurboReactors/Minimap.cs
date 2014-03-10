@@ -15,7 +15,6 @@ namespace WheatAndTurboReactors
 
         public void initMinimap(Canvas canvas)
         {
-
             //replace this by reading from a file
             //-------------------------------------------------------------------------------------
             Planet lonelyPlanet = new Planet(20, 20, 0, 0, 0, 0, 0, 0);
