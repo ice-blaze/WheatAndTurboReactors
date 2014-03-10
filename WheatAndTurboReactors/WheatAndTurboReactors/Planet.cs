@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Shapes;
-using System.Drawing;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
-namespace WpfApplication1
+namespace WheatAndTurboReactors
 {
     class Planet
     {
@@ -36,6 +35,5 @@ namespace WpfApplication1
             planetImage.Fill = brush;
 
         }
-
     }
 }

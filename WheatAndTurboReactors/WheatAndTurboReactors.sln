@@ -1,9 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheatAndTurboreactors", "WpfApplication1\WheatAndTurboreactors.csproj", "{DB94D80F-2186-4C84-A082-C8D9EB133F01}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WheatAndTurboReactors", "WheatAndTurboReactors\WheatAndTurboReactors.csproj", "{FB678F95-33C5-491E-AFAE-181DD21BA7FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DB94D80F-2186-4C84-A082-C8D9EB133F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB94D80F-2186-4C84-A082-C8D9EB133F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB94D80F-2186-4C84-A082-C8D9EB133F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB94D80F-2186-4C84-A082-C8D9EB133F01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB678F95-33C5-491E-AFAE-181DD21BA7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB678F95-33C5-491E-AFAE-181DD21BA7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB678F95-33C5-491E-AFAE-181DD21BA7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB678F95-33C5-491E-AFAE-181DD21BA7FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
