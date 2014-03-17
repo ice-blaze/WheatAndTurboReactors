@@ -20,6 +20,7 @@ namespace WheatAndTurboReactors
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Button> shipButtons = new List<Button>();
         Minimap minimap;
         public MainWindow()
         {
@@ -54,5 +55,16 @@ namespace WheatAndTurboReactors
             Canvas canvas = sender as Canvas;
             minimap.initMinimap(canvas);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button newBtn = new Button();
+            newBtn.Content = shipButtons.Count.ToString();
+            shipButtons.Add(newBtn);
+            WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
+            wrap.Children.Add(newBtn);
+        }
+
+
     }
 }
