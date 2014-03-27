@@ -17,9 +17,9 @@ namespace WheatAndTurboReactors
         {
             //replace this by reading from a file
             //-------------------------------------------------------------------------------------
-            Planet lonelyPlanet = new Planet(20, 20, 0, 0, 0, 0, 0, 0);
-            Planet farAwayPlanet = new Planet(200, 200, 0, 0, 0, 0, 0, 0);
-            Planet thisGuy = new Planet(40, 30, 0, 0, 0, 0, 0, 0);
+            Planet lonelyPlanet = new ForeignPlanet(20, 20, 0, 0, 0, 0, 0, 0);
+            Planet farAwayPlanet = new ForeignPlanet(200, 200, 0, 0, 0, 0, 0, 0);
+            Planet thisGuy = new ForeignPlanet(40, 30, 0, 0, 0, 0, 0, 0);
 
             planetList = new List<Planet>();
 

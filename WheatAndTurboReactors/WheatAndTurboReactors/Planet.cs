@@ -12,20 +12,16 @@ namespace WheatAndTurboReactors
     {
         public int x, y;
         int wheat, diamond, turboReactors;
-        int wheatNorm, diamondNorm, turboReactorNorm;
         public Ellipse planetImage;
         public Brush brush;
 
-        public Planet(int _x, int _y, int _wheat, int _diamond, int _turboReactors, int _wheatNorm, int _diamondNorm, int _turboReactorNorm)
+        public Planet(int _x, int _y, int _wheat, int _diamond, int _turboReactors)
         {
             x = _x;
             y = _y;
             wheat = _wheat;
             diamond = _diamond;
             turboReactors = _turboReactors;
-            wheatNorm = _wheatNorm;
-            diamondNorm = _diamondNorm;
-            turboReactorNorm = _turboReactorNorm;
 
             planetImage = new Ellipse();
             planetImage.Height = 5;
