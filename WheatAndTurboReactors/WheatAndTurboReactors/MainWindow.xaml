@@ -4,7 +4,10 @@
         Title="MainWindow" Height="700" Width="1024"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         >
+
     <Grid>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">
 
         </Canvas>
@@ -14,10 +17,20 @@
             <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="33" Canvas.Top="109"/>
             <Label x:Name="wheatLabel" Content="Label" Canvas.Left="33" Canvas.Top="83"/>
 
+=======
+        <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded"/>
+        <Canvas Background="#FFD61F1F" Height="146" VerticalAlignment="Top" HorizontalAlignment="Right" Width="512" Margin="0,516,0,0" MouseDown="Resources_Canvas_MouseDown">
+            <Button Content="Button" Canvas.Left="428" Canvas.Top="114" Width="74"/>
+>>>>>>> Stashed changes
+=======
+        <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded"/>
+        <Canvas Background="#FFD61F1F" Height="146" VerticalAlignment="Top" HorizontalAlignment="Right" Width="512" Margin="0,516,0,0" MouseDown="Resources_Canvas_MouseDown">
+            <Button Content="Button" Canvas.Left="428" Canvas.Top="114" Width="74"/>
+>>>>>>> Stashed changes
         </Canvas>
-        <Canvas HorizontalAlignment="Left" Width="511" Margin="-5,516,0,0" Height="154" VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
+        <Canvas HorizontalAlignment="Left" Width="506" Margin="0,516,0,0" Height="146" VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
             <!--static values, we should inherite from the canvas-->
-            <Grid Width="511" Height="154">
+            <Grid Width="506" Height="146">
                 <!--<Button Grid.Row="0" Grid.Column="1">Buy new ships</Button>
                 <Button Grid.Row="0" Grid.Column="1">CUCU</Button>-->
 
@@ -37,12 +50,26 @@
 
                     </WrapPanel>
                 </ScrollViewer>
-                <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" MinWidth="80" Margin="10" Content="Buy some &#x0a;cool ships" Click="Button_Click"  />
+                <Button Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,10,10" Content="Buy some &#x0a;cool ships" Click="Button_Click" HorizontalAlignment="Right" Width="80"  />
             </Grid>
         </Canvas>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <Canvas Margin="734,0,0,0" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="282" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
             <Label x:Name="titleLabel" Content="Label" Canvas.Left="38" Canvas.Top="22" Height="33" Width="198"/>
 
+=======
+=======
+>>>>>>> Stashed changes
+        <Canvas Margin="734,0,0,0" Height="516" VerticalAlignment="Top" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown" HorizontalAlignment="Left" Width="274">
+            <Button Content="Button" Canvas.Left="188" Canvas.Top="484" Width="76"/>
+        </Canvas>
+        <Canvas Name="BuyShipLayout" Background="Black" Opacity="0.8" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="-1200,-252,0,0">
+            <Canvas Background="White" Height="432" Canvas.Top="111" Width="1008"/>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         </Canvas>
 
     </Grid>
