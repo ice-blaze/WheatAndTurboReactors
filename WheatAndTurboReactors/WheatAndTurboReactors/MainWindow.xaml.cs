@@ -62,11 +62,6 @@ namespace WheatAndTurboReactors
             Console.WriteLine("HA");
         }
 
-        public void functionHA(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("HA");
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button newBtn = new Button();
@@ -75,20 +70,9 @@ namespace WheatAndTurboReactors
             shipButtons.Add(newBtn);
             WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
             wrap.Children.Add(newBtn);
-<<<<<<< Updated upstream
-
-<<<<<<< Updated upstream
-
-=======
-            Canvas buyingLayout = (Canvas)this.FindName("BuyShipLayout");
-            buyingLayout.Margin = new Thickness(0, 0, buyingLayout.Margin.Right, buyingLayout.Margin.Bottom);
-        }
->>>>>>> Stashed changes
-=======
 
             Canvas buyingLayout = (Canvas)this.FindName("BuyShipLayout");
             buyingLayout.Margin = new Thickness(0, 0, buyingLayout.Margin.Right, buyingLayout.Margin.Bottom);
         }
->>>>>>> Stashed changes
     }
 }

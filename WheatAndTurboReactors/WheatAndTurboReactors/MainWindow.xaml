@@ -6,28 +6,17 @@
         >
 
     <Grid>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
         <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">
 
         </Canvas>
-        <Canvas x:Name="playerRessources" Background="#FFD61F1F" Height="154" VerticalAlignment="Top" HorizontalAlignment="Left" Width="510" Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
-            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="33" Canvas.Top="31"/>
-            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="33" Canvas.Top="57"/>
-            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="33" Canvas.Top="109"/>
-            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="33" Canvas.Top="83"/>
-
-=======
-        <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded"/>
-        <Canvas Background="#FFD61F1F" Height="146" VerticalAlignment="Top" HorizontalAlignment="Right" Width="512" Margin="0,516,0,0" MouseDown="Resources_Canvas_MouseDown">
-            <Button Content="Button" Canvas.Left="428" Canvas.Top="114" Width="74"/>
->>>>>>> Stashed changes
-=======
-        <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded"/>
-        <Canvas Background="#FFD61F1F" Height="146" VerticalAlignment="Top" HorizontalAlignment="Right" Width="512" Margin="0,516,0,0" MouseDown="Resources_Canvas_MouseDown">
-            <Button Content="Button" Canvas.Left="428" Canvas.Top="114" Width="74"/>
->>>>>>> Stashed changes
+        <Canvas x:Name="playerRessources" Background="#FFD61F1F" Height="146" VerticalAlignment="Top" HorizontalAlignment="Left" Width="502" Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
+            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="10" Canvas.Top="10"/>
+            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="10" Canvas.Top="41"/>
+            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="10" Canvas.Top="103"/>
+            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="10" Canvas.Top="72"/>
         </Canvas>
+
         <Canvas HorizontalAlignment="Left" Width="506" Margin="0,516,0,0" Height="146" VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
             <!--static values, we should inherite from the canvas-->
             <Grid Width="506" Height="146">
@@ -53,23 +42,13 @@
                 <Button Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,10,10" Content="Buy some &#x0a;cool ships" Click="Button_Click" HorizontalAlignment="Right" Width="80"  />
             </Grid>
         </Canvas>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <Canvas Margin="734,0,0,0" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="282" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
-            <Label x:Name="titleLabel" Content="Label" Canvas.Left="38" Canvas.Top="22" Height="33" Width="198"/>
 
-=======
-=======
->>>>>>> Stashed changes
-        <Canvas Margin="734,0,0,0" Height="516" VerticalAlignment="Top" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown" HorizontalAlignment="Left" Width="274">
-            <Button Content="Button" Canvas.Left="188" Canvas.Top="484" Width="76"/>
+        <Canvas Margin="734,0,0,0" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
+            <Label x:Name="titleLabel" Content="Label" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254"/>
         </Canvas>
+
         <Canvas Name="BuyShipLayout" Background="Black" Opacity="0.8" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="-1200,-252,0,0">
             <Canvas Background="White" Height="432" Canvas.Top="111" Width="1008"/>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         </Canvas>
 
     </Grid>
