@@ -14,14 +14,16 @@ namespace WheatAndTurboReactors
     {
         public int x, y;
         int wheat, diamond, turboReactors;
+        string name;
         public Ellipse planetImage;
         public Brush brush;
         protected List<Planet> linkedPlanets;
         int size = 20;
         protected bool discovered;
 
-        public Planet(int _x, int _y, int _wheat, int _diamond, int _turboReactors)
+        public Planet(string _name, int _x, int _y, int _wheat, int _diamond, int _turboReactors)
         {
+            name = _name;
             x = _x;
             y = _y;
             wheat = _wheat;
@@ -86,6 +88,13 @@ namespace WheatAndTurboReactors
         {
             return linkedPlanets;
         }
+
+        public string getName()
+        {
+            return name;
+        }
+
+        
     }
 }
     

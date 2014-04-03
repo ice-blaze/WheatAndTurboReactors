@@ -6,10 +6,14 @@
         >
     <Grid>
         <Canvas Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">
-        
+
         </Canvas>
-        <Canvas Background="#FFD61F1F" Height="154" VerticalAlignment="Top" HorizontalAlignment="Left" Width="510" Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
-        
+        <Canvas x:Name="playerRessources" Background="#FFD61F1F" Height="154" VerticalAlignment="Top" HorizontalAlignment="Left" Width="510" Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
+            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="33" Canvas.Top="31"/>
+            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="33" Canvas.Top="57"/>
+            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="33" Canvas.Top="109"/>
+            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="33" Canvas.Top="83"/>
+
         </Canvas>
         <Canvas HorizontalAlignment="Left" Width="511" Margin="-5,516,0,0" Height="154" VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
             <!--static values, we should inherite from the canvas-->
@@ -22,22 +26,23 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <WrapPanel Orientation="Horizontal" Margin="10" Name="ShipsPanel">
-                    <WrapPanel.Resources>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Margin" Value="10" />
-                            <Setter Property="Width" Value="70" />
-                            <Setter Property="Height" Value="70"/>
-                        </Style>
-                    </WrapPanel.Resources>
- 
+                    <WrapPanel Orientation="Horizontal" Margin="10" Name="ShipsPanel">
+                        <WrapPanel.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Margin" Value="10" />
+                                <Setter Property="Width" Value="70" />
+                                <Setter Property="Height" Value="70"/>
+                            </Style>
+                        </WrapPanel.Resources>
+
                     </WrapPanel>
                 </ScrollViewer>
                 <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" MinWidth="80" Margin="10" Content="Buy some &#x0a;cool ships" Click="Button_Click"  />
             </Grid>
         </Canvas>
         <Canvas Margin="734,0,0,0" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="282" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
-            
+            <Label x:Name="titleLabel" Content="Label" Canvas.Left="38" Canvas.Top="22" Height="33" Width="198"/>
+
         </Canvas>
 
     </Grid>

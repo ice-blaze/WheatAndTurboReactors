@@ -53,7 +53,8 @@ namespace WheatAndTurboReactors
         {
             minimap = new Minimap();
             Canvas canvas = sender as Canvas;
-            minimap.initMinimap(canvas);
+            minimap.initMinimap(canvas, this);
+            GameLogic gamelogic = new GameLogic(this, minimap);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -64,6 +65,7 @@ namespace WheatAndTurboReactors
             WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
             wrap.Children.Add(newBtn);
         }
+
 
 
     }

@@ -13,18 +13,24 @@ namespace WheatAndTurboReactors
         //TODO wheat production, ship list
                 // norms
         // background text
-        int wheat, diamond, turboReactors;
+        int money, wheat, diamond, turboReactors;
         int wheatNorm, diamondNorm, turboReactorNorm;
         int wheatGain;
         public Ellipse planetImage;
         
 
-        public MotherPlanet(int _x, int _y, int _wheat, int _diamond, int _turboReactors) : base(_x, _y, _wheat, _diamond, _turboReactors)
+        public MotherPlanet(string _name, int _x, int _y, int _wheat, int _diamond, int _turboReactors) : base(_name, _x, _y, _wheat, _diamond, _turboReactors)
         {
+            money = 0;
             wheatGain = 0;
             brush = new SolidColorBrush(Colors.Red);
             base.planetImage.Fill = brush;
             base.discovered = true;
+        }
+
+        public int getMoney()
+        {
+            return money;
         }
 
 
