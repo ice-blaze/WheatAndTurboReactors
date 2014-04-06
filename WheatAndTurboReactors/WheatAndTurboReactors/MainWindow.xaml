@@ -48,7 +48,13 @@
         </Canvas>
 
         <Canvas Name="BuyShipLayout" Background="Black" Opacity="0.8" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="-1200,-252,0,0">
-            <Canvas Background="White" Height="432" Canvas.Top="111" Width="1008"/>
+            <Canvas Background="White" Height="432" Canvas.Top="111" Width="1008">
+                <Button Content="Buy Small" Width="153" Canvas.Left="69" Canvas.Top="201" Height="116" Click="Buy_Ships_Small_Click"/>
+                <Button Content="Buy Medium" Width="153" Canvas.Left="429" Canvas.Top="201" Height="116" Click="Buy_Ships_Medium_Click"/>
+                <Button Content="Buy Big" Width="153" Canvas.Left="795" Canvas.Top="201" Height="116" Click="Buy_Ships_Big_Click"/>
+                <Button Content="Cancel" Canvas.Left="873" Canvas.Top="362" Width="75" Click="Buy_Ships_Cancel_Click" />
+                <TextBox Name="BuyShipTextBox" Height="35" Canvas.Left="336" TextWrapping="Wrap" Text="Insert a cool Name" Canvas.Top="110" Width="342" FontSize="20"/>
+            </Canvas>
         </Canvas>
 
     </Grid>
