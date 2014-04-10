@@ -13,11 +13,13 @@ namespace WheatAndTurboReactors
         DispatcherTimer timer;
         MainWindow parent;
         Minimap minimap;
+        Planet currentlyShownPlanet;
 
         public GameLogic(MainWindow _parent, Minimap _minimap)
         {
             parent = _parent;
             minimap = _minimap;
+            currentlyShownPlanet =  new ForeignPlanet("broken", 40, 360, 0, 0, 0);
 
             timer = new System.Windows.Threading.DispatcherTimer();
             timer.Tick += new EventHandler(timer_tick);
@@ -34,17 +36,38 @@ namespace WheatAndTurboReactors
 
         private void growth()
         {
+            minimap.getMotherPlanet().addWheat(minimap.getMotherPlanet().getWheatGain());
+            foreach(Planet planet in minimap.planetList)
+            {
+                planet.normalizePrices();
+            }
             
         }
 
-        private void updateLabels()
+        public void updateLabels()
         {
             Label moneyLabel = (Label)parent.FindName("moneyLabel");
             Label diamondLabel = (Label)parent.FindName("diamondLabel");
             Label wheatLabel = (Label)parent.FindName("wheatLabel");
             Label turboReactorLabel = (Label)parent.FindName("turboReactorLabel");
 
-            moneyLabel.Content = minimap.getMotherPlanet().getMoney();
+            Label foreignWheatLabel = (Label)parent.FindName("foreignWheatLabel");
+            Label foreignDiamondLabel = (Label)parent.FindName("foreignDiamondLabel");
+            Label foreignTurboReactorLabel = (Label)parent.FindName("foreignTurboReactorLabel");
+
+            moneyLabel.Content = "money: " + minimap.getMotherPlanet().getMoney();
+            diamondLabel.Content = "diamond: " + minimap.getMotherPlanet().getDiamonds();
+            wheatLabel.Content = "wheat: " + minimap.getMotherPlanet().getWheat();
+            turboReactorLabel.Content = "turbo reactor: " + minimap.getMotherPlanet().getTurboReactors();
+
+            foreignWheatLabel.Content = "wheat: " + currentlyShownPlanet.getWheat();
+            foreignDiamondLabel.Content = "diamond: " + currentlyShownPlanet.getDiamond();
+            foreignTurboReactorLabel.Content = "turbo reactors: " + currentlyShownPlanet.getTurboReactors();
+        }
+
+        public void setShownPlanet(Planet planet)
+        {
+            currentlyShownPlanet = planet;
         }
     }
 }

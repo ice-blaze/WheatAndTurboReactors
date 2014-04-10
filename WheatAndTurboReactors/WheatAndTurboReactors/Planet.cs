@@ -13,7 +13,9 @@ namespace WheatAndTurboReactors
     class Planet
     {
         public int x, y;
-        int wheat, diamond, turboReactors;
+        int wheat;
+        int diamond;
+        int turboReactors;
         string name;
         public Ellipse planetImage;
         public Brush brush;
@@ -21,14 +23,14 @@ namespace WheatAndTurboReactors
         int size = 20;
         protected bool discovered;
 
-        public Planet(string _name, int _x, int _y, int _wheat, int _diamond, int _turboReactors)
+        public Planet(string _name, int _x, int _y, int _wheatPrice, int _diamondPrice, int _turboReactorsPrice)
         {
             name = _name;
             x = _x;
             y = _y;
-            wheat = _wheat;
-            diamond = _diamond;
-            turboReactors = _turboReactors;
+            wheat = _wheatPrice;
+            diamond = _diamondPrice;
+            turboReactors = _turboReactorsPrice;
 
             planetImage = new Ellipse();
             planetImage.Height = size;
@@ -59,6 +61,11 @@ namespace WheatAndTurboReactors
 
                 canvas.Children.Add(line);
             }
+        }
+
+        public virtual void normalizePrices()
+        {
+
         }
 
         public virtual bool isDiscovered()
@@ -93,6 +100,23 @@ namespace WheatAndTurboReactors
         {
             return name;
         }
+
+        public int getWheat()
+        {
+            return wheat;
+        }
+
+        public int getDiamond()
+        {
+            return diamond;
+        }
+
+        public int getTurboReactors()
+        {
+            return turboReactors;
+        }
+
+        
 
         
     }
