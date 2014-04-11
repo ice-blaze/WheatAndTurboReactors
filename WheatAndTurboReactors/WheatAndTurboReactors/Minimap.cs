@@ -16,6 +16,7 @@ namespace WheatAndTurboReactors
         public int planetSize = 20;
         private MainWindow parent;
         private MotherPlanet motherPlanet;
+        private GameLogic gameLogic;
 
         public void initMinimap(Canvas canvas, MainWindow _parent)
         {
@@ -23,18 +24,18 @@ namespace WheatAndTurboReactors
 
             //replace this by reading from a file
             //-------------------------------------------------------------------------------------
-            ForeignPlanet lonelyPlanet = new ForeignPlanet("lonely planet",150, 20, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet loPlanet = new ForeignPlanet("pissus", 100, 120, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet farPlanet = new ForeignPlanet("couillus", 200, 10, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet guy = new ForeignPlanet("jameder", 60, 300, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet et = new ForeignPlanet("cokandballs", 100, 200, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet lanet = new ForeignPlanet("bitchslap", 150, 310, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet uy = new ForeignPlanet("crashed", 40, 100, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet laneti = new ForeignPlanet("or not", 100, 350, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet faret = new ForeignPlanet("speedimus", 10, 120, 0, 0, 0, 0, 0, 0);
-            ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 0, 0, 0, 0, 0, 0);
+            ForeignPlanet lonelyPlanet = new ForeignPlanet("lonely planet",150, 20, 100, 100, 100);
+            ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 100, 100, 100);
+            ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 100, 100, 100);
+            ForeignPlanet loPlanet = new ForeignPlanet("pissus", 100, 120, 100, 100, 100);
+            ForeignPlanet farPlanet = new ForeignPlanet("couillus", 200, 10, 100, 100, 100);
+            ForeignPlanet guy = new ForeignPlanet("jameder", 60, 300, 0, 0, 0);
+            ForeignPlanet et = new ForeignPlanet("cokandballs", 100, 200, 0, 0, 0);
+            ForeignPlanet lanet = new ForeignPlanet("bitchslap", 150, 310, 0, 0, 0);
+            ForeignPlanet uy = new ForeignPlanet("crashed", 40, 100, 0, 0, 0);
+            ForeignPlanet laneti = new ForeignPlanet("or not", 100, 350, 0, 0, 0);
+            ForeignPlanet faret = new ForeignPlanet("speedimus", 10, 120, 0, 0, 0);
+            ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 0, 0, 0);
 
             motherPlanet = new MotherPlanet("mother planet", 10, 10, 0, 0, 0);
 
@@ -115,6 +116,8 @@ namespace WheatAndTurboReactors
         {
             Label label = (Label)parent.FindName("titleLabel");
             label.Content = planet.getName();
+            gameLogic.setShownPlanet(planet);
+            gameLogic.updateLabels();
             
         }
 
@@ -154,6 +157,11 @@ namespace WheatAndTurboReactors
         public MotherPlanet getMotherPlanet()
         {
             return motherPlanet;
+        }
+
+        public void setGameLogic(GameLogic _gameLogic)
+        {
+            gameLogic = _gameLogic;
         }
     }
 }

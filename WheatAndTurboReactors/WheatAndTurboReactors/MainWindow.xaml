@@ -38,12 +38,19 @@
 
                     </WrapPanel>
                 </ScrollViewer>
+
                 <Button Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,10,10" Content="Buy some &#x0a;cool ships" Click="Buy_Ships_Click" HorizontalAlignment="Right" Width="80"  />
+
+                <Button x:Name="improve_wheat_production" Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,-491,10" Content="improve wheat production" Click="boughtProduction" HorizontalAlignment="Right" Width="80"  />
+
             </Grid>
         </Canvas>
 
         <Canvas Margin="734,0,0,0" Height="310" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
             <Label x:Name="titleLabel" Content="Label" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254"/>
+            <Label x:Name="foreignWheatLabel" Content="Label" Canvas.Left="23" Canvas.Top="47"/>
+            <Label x:Name="foreignDiamondLabel" Content="Label" Canvas.Left="23" Canvas.Top="78"/>
+            <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109"/>
         </Canvas>
         <Canvas Margin="734,310,0,0" Height="206" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="Violet" MouseDown="Info_Canvas_MouseDown">
             <DockPanel Height="206" Width="274">

@@ -10,18 +10,34 @@ namespace WheatAndTurboReactors
     {
         // norms
         // background text
-        int wheat, diamond, turboReactors;
+        double wheatPrice, diamondPrice, turboReactorPrice;
         int wheatNorm, diamondNorm, turboReactorNorm;
         
 
-        public ForeignPlanet(string _name, int _x, int _y, int _wheat, int _diamond, int _turboReactors, int _wheatNorm, int _diamondNorm, int _turboReactorNorm)
-            : base(_name, _x, _y, _wheat, _diamond, _turboReactors)
+        public ForeignPlanet(string _name, int _x, int _y, int _wheatPrice, int _diamondPrice, int _turboReactorPrice)
+            : base(_name, _x, _y, _wheatPrice, _diamondPrice, _turboReactorPrice)
         {
-            wheatNorm = _wheatNorm;
-            diamondNorm = _diamondNorm;
-            turboReactorNorm = _turboReactorNorm;
+            wheatPrice = _wheatPrice;
+            diamondPrice = _diamondPrice;
+            turboReactorPrice = _turboReactorPrice;
+
+
+            wheatNorm = _wheatPrice;
+            diamondNorm = _diamondPrice;
+            turboReactorNorm = _turboReactorPrice;
+
 
             base.discovered = false;
+        }
+
+        public override void normalizePrices()
+        {
+            double differenceFromNorm = wheatNorm - wheatPrice;
+            wheatPrice += differenceFromNorm * 0.01;
+            differenceFromNorm = diamondNorm - diamondPrice;
+            diamondPrice += differenceFromNorm;
+            differenceFromNorm = turboReactorNorm - turboReactorPrice;
+            turboReactorPrice += differenceFromNorm;
         }
 
 

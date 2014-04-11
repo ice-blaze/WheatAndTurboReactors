@@ -23,6 +23,7 @@ namespace WheatAndTurboReactors
         List<Button> shipButtons = new List<Button>();
         List<Ship> ships = new List<Ship>();
         Minimap minimap;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -55,7 +56,8 @@ namespace WheatAndTurboReactors
             minimap = new Minimap();
             Canvas canvas = sender as Canvas;
             minimap.initMinimap(canvas, this);
-            GameLogic gamelogic = new GameLogic(this, minimap);
+            GameLogic gameLogic = new GameLogic(this, minimap);
+            minimap.setGameLogic(gameLogic);
         }
 
         public void shipShow(object sender, RoutedEventArgs e)
@@ -193,5 +195,11 @@ namespace WheatAndTurboReactors
             if (number >= 1) return "I" + ToRoman(number - 1);
             throw new ArgumentOutOfRangeException("something bad happened");
         }
+
+        private void boughtProduction(object sender, RoutedEventArgs e)
+        {
+            minimap.getMotherPlanet().addWheatGain();
+        }
+
     }
 }
