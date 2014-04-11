@@ -18,7 +18,7 @@ namespace WheatAndTurboReactors
         public const int BIG_SHIP_SIZE = 200;
 
         private int container;
-        private int countnerMaxSize;
+        private int containerMaxSize;
         private int level;
         private string name;
 
@@ -32,13 +32,13 @@ namespace WheatAndTurboReactors
             switch (level)
             {
                 case SMALL_LEVEL:
-                    countnerMaxSize = SMALL_SHIP_SIZE;
+                    containerMaxSize = SMALL_SHIP_SIZE;
                     break;
                 case MEDIUM_LEVEL:
-                    countnerMaxSize = MEDIUM_SHIP_SIZE;
+                    containerMaxSize = MEDIUM_SHIP_SIZE;
                     break;
                 case BIG_LEVEL:
-                    countnerMaxSize = BIG_SHIP_SIZE;
+                    containerMaxSize = BIG_SHIP_SIZE;
                     break;
             }
         }
@@ -70,10 +70,18 @@ namespace WheatAndTurboReactors
             set
             {
                 int somme = container + value;
-                if (somme <= 0 && somme <= countnerMaxSize)
+                if (somme <= 0 && somme <= containerMaxSize)
                 {
                     container = somme;
                 }
+            }
+        }
+
+        public int ContainerMax
+        {
+            get
+            {
+                return containerMaxSize;
             }
         }
 

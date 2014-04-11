@@ -58,29 +58,35 @@ namespace WheatAndTurboReactors
             GameLogic gamelogic = new GameLogic(this, minimap);
         }
 
-        public void functionHA(object sender, RoutedEventArgs e)
+        public void shipShow(object sender, RoutedEventArgs e)
         {
             string shipName = ((Button)sender).Content.ToString();
 
             Ship ship = null;
             for (int i = 0; i < ships.Count;i++ )
             {
-                if(i.ToString()+ships[i].Name == shipName)
+                if(ships[i].Name == shipName)
                 {
                     ship = ships[i];
                 }
             }
 
+            Label lblShipName = (Label)this.FindName("shipShowName");
+            Label lblShipCargo = (Label)this.FindName("shipShowCargo");
+
+            lblShipName.Content = ship.Name;
+            lblShipCargo.Content = ship.Container.ToString()+"/"+ship.ContainerMax.ToString();
             //faire ce quon a envie de faire pour ce ship
-            MessageBox.Show(ship.Name);
+            //MessageBox.Show(ship.Name);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Buy_Ships_Click(object sender, RoutedEventArgs e)
         {
             Canvas buyingLayout = (Canvas)this.FindName("BuyShipLayout");
             buyingLayout.Margin = new Thickness(0, 0, buyingLayout.Margin.Right, buyingLayout.Margin.Bottom);
 
             TextBox tbxShipName = (TextBox)this.FindName("BuyShipTextBox");
+            tbxShipName.Text = "Insert a cool Name";
             tbxShipName.Focus();
             tbxShipName.SelectAll();
         }
@@ -122,24 +128,70 @@ namespace WheatAndTurboReactors
 
         private Boolean createShip(string size)
         {
-            TextBox tbxName = (TextBox)this.FindName("BuyShipTextBox");
-            if(tbxName.Text == "Insert a cool Name")
+            String nameInput = ((TextBox)this.FindName("BuyShipTextBox")).Text;
+            if(nameInput.Contains(" "))
             {
-                MessageBox.Show("Choose a better name...", "Naming error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Choose a better name... (no sapces)", "Naming error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return false;
             }
 
-            Ship ship = new Ship(size, tbxName.Text);
+            int count = 1;
+            nameInput = ToUppercaseFirst(nameInput);
+            foreach(Ship shipIt in ships)
+            {
+                String nameClean = shipIt.Name.Split(' ')[0];
+                if(nameClean.Equals(nameInput)) { count++; }
+            }
+            nameInput =  nameInput + " Mark " + ToRoman(count);
+
+            Ship ship = new Ship(size, nameInput);
             ships.Add(ship);
 
             Button newBtn = new Button();
-            newBtn.Content = shipButtons.Count.ToString()+tbxName.Text;
-            newBtn.Click += functionHA;
+            newBtn.Content = nameInput;
+            newBtn.Click += shipShow;
             shipButtons.Add(newBtn); 
             WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
             wrap.Children.Add(newBtn);
 
             return true;
+        }
+
+        private void Start_Trip_Click(object sender, RoutedEventArgs e)
+        {
+            Canvas minimap = (Canvas)this.FindName("minimapCanvas");
+            double mainWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double mainHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double diffX = 2 - minimap.Width / mainWidth;// 1 + diff width pourcent
+            double diffY = 2 - minimap.Height / mainHeight;
+            st.ScaleX = diffX;
+            st.ScaleY = diffY;
+        }
+
+        static string ToUppercaseFirst(string s)
+        {
+            if (string.IsNullOrEmpty(s)) { return string.Empty; }
+            return char.ToUpper(s[0]) + s.Substring(1).ToLower();
+        }
+
+        public static string ToRoman(int number)
+        {
+            if ((number < 0) || (number > 3999)) throw new ArgumentOutOfRangeException("insert value betwheen 1 and 3999");
+            if (number < 1) return string.Empty;
+            if (number >= 1000) return "M" + ToRoman(number - 1000);
+            if (number >= 900) return "CM" + ToRoman(number - 900); //EDIT: i've typed 400 instead 900
+            if (number >= 500) return "D" + ToRoman(number - 500);
+            if (number >= 400) return "CD" + ToRoman(number - 400);
+            if (number >= 100) return "C" + ToRoman(number - 100);
+            if (number >= 90) return "XC" + ToRoman(number - 90);
+            if (number >= 50) return "L" + ToRoman(number - 50);
+            if (number >= 40) return "XL" + ToRoman(number - 40);
+            if (number >= 10) return "X" + ToRoman(number - 10);
+            if (number >= 9) return "IX" + ToRoman(number - 9);
+            if (number >= 5) return "V" + ToRoman(number - 5);
+            if (number >= 4) return "IV" + ToRoman(number - 4);
+            if (number >= 1) return "I" + ToRoman(number - 1);
+            throw new ArgumentOutOfRangeException("something bad happened");
         }
     }
 }
