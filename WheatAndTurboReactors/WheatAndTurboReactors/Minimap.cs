@@ -39,6 +39,7 @@ namespace WheatAndTurboReactors
             ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 0, 0, 0);
 
             motherPlanet = new MotherPlanet("mother planet", 10, 10, 0, 0, 0);
+            Ship.MotherPlanet = motherPlanet;
 
             planetList = new List<Planet>();
 
@@ -70,11 +71,9 @@ namespace WheatAndTurboReactors
             guy.addPlanetToLinks(laneti);
             loPlanet.addPlanetToLinks(et);
 
-
             motherPlanet.showDiscovered(canvas);
 
             //-------------------------------------------------------------------------------------
-
             
             foreach (Planet planet in planetList)
             {
@@ -87,12 +86,7 @@ namespace WheatAndTurboReactors
                     canvas.Children.Add(planet.planetImage);
                     planet.drawLinks(canvas);
                 }
-                
-                
-                
-
             }
-
         }
 
         public void checkIfPlanetIsClicked(MouseButtonEventArgs e, Canvas canvas)
@@ -117,7 +111,7 @@ namespace WheatAndTurboReactors
         private void updateInformation(Planet planet)
         {
             Label label = (Label)parent.FindName("titleLabel");
-            label.Content = planet.getName();
+            label.Content = planet.Name;
             gameLogic.setShownPlanet(planet);
             gameLogic.updateLabels();
             
@@ -152,7 +146,6 @@ namespace WheatAndTurboReactors
                         }
                     }
                 }
-
             }
         }
 

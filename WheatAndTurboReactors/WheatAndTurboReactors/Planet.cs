@@ -96,24 +96,27 @@ namespace WheatAndTurboReactors
             return linkedPlanets;
         }
 
-        public string getName()
+        public string Name
         {
-            return name;
+            get { return name; }
+            set { name = value; }
         }
 
-        public int getWheat()
+        public int Wheat
         {
-            return wheat;
+            get { return wheat; }
+            set { wheat = value; }
         }
 
-        public int getDiamond()
+        public int Diamond
         {
-            return diamond;
+            get { return diamond; }
+            set { diamond = value; }
         }
 
-        public int getTurboReactors()
+        public int TurboReactors
         {
-            return turboReactors;
+            get { return turboReactors; }            
         }
 
         

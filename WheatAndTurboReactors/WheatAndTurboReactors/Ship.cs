@@ -18,9 +18,11 @@ namespace WheatAndTurboReactors
         public const int BIG_SHIP_SIZE = 200;
 
         private int container;
-        private int containerMaxSize;
+        private int containerMax;
         private int level;
         private string name;
+        private Planet planetShip;
+        static private MotherPlanet motherPlanet;
 
         // bitmap (imageloader?)
         public Ship(int _level, string _name = "NaN name")
@@ -32,15 +34,16 @@ namespace WheatAndTurboReactors
             switch (level)
             {
                 case SMALL_LEVEL:
-                    containerMaxSize = SMALL_SHIP_SIZE;
+                    containerMax = SMALL_SHIP_SIZE;
                     break;
                 case MEDIUM_LEVEL:
-                    containerMaxSize = MEDIUM_SHIP_SIZE;
+                    containerMax = MEDIUM_SHIP_SIZE;
                     break;
                 case BIG_LEVEL:
-                    containerMaxSize = BIG_SHIP_SIZE;
+                    containerMax = BIG_SHIP_SIZE;
                     break;
             }
+            planetShip = motherPlanet;
         }
 
         public Ship(string _level, string _name = "NaN name")
@@ -70,7 +73,7 @@ namespace WheatAndTurboReactors
             set
             {
                 int somme = container + value;
-                if (somme <= 0 && somme <= containerMaxSize)
+                if (somme <= 0 && somme <= containerMax)
                 {
                     container = somme;
                 }
@@ -81,7 +84,26 @@ namespace WheatAndTurboReactors
         {
             get
             {
-                return containerMaxSize;
+                return containerMax;
+            }
+        }
+
+        static public MotherPlanet MotherPlanet
+        {
+            get
+            {
+                return motherPlanet;
+            }
+            set
+            {
+                motherPlanet = value;
+            }
+        }
+        public Planet PlanetShip
+        {
+            get
+            {
+                return planetShip;
             }
         }
 

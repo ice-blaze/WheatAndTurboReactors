@@ -30,24 +30,10 @@ namespace WheatAndTurboReactors
             this.wheatGain = 1;
         }
 
-        public int getMoney()
+        public int Money
         {
-            return money;
-        }
-
-        public int getDiamonds()
-        {
-            return diamond;
-        }
-
-        public int getWheat()
-        {
-            return wheat;
-        }
-
-        public int getTurboReactors()
-        {
-            return turboReactors;
+            get { return money; }
+            set { money = value; }
         }
 
         public void addWheat(int _wheat)
@@ -55,35 +41,15 @@ namespace WheatAndTurboReactors
             wheat += _wheat;
         }
 
-        public void setMoney(int _money)
+        public int WheatGain
         {
-            money = _money;
-        }
-        public void setDiamonds(int _diamond)
-        {
-            diamond = _diamond;
-        }
-        public void setWheat(int _wheat)
-        {
-            wheat = _wheat;
-        }
-        public void setTurboReactors(int _turboReactors)
-        {
-            turboReactors = _turboReactors;
-        }
-
-        public int getWheatGain()
-        {
-            return wheatGain;
+            get { return wheatGain; }
         }
 
         public void addWheatGain()
         {
             wheatGain += 1;
         }
-
-        
-
 
     }
 }

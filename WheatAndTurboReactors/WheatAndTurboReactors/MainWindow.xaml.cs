@@ -75,9 +75,11 @@ namespace WheatAndTurboReactors
 
             Label lblShipName = (Label)this.FindName("shipShowName");
             Label lblShipCargo = (Label)this.FindName("shipShowCargo");
+            Label lblShipPlanet = (Label)this.FindName("shipShowPlanet");
 
             lblShipName.Content = ship.Name;
             lblShipCargo.Content = ship.Container.ToString()+"/"+ship.ContainerMax.ToString();
+            lblShipPlanet.Content = ship.PlanetShip.Name;
             //faire ce quon a envie de faire pour ce ship
             //MessageBox.Show(ship.Name);
         }

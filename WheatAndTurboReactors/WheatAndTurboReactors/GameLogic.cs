@@ -36,7 +36,7 @@ namespace WheatAndTurboReactors
 
         private void growth()
         {
-            minimap.getMotherPlanet().addWheat(minimap.getMotherPlanet().getWheatGain());
+            minimap.getMotherPlanet().addWheat(minimap.getMotherPlanet().WheatGain);
             foreach(Planet planet in minimap.planetList)
             {
                 planet.normalizePrices();
@@ -55,14 +55,14 @@ namespace WheatAndTurboReactors
             Label foreignDiamondLabel = (Label)parent.FindName("foreignDiamondLabel");
             Label foreignTurboReactorLabel = (Label)parent.FindName("foreignTurboReactorLabel");
 
-            moneyLabel.Content = "money: " + minimap.getMotherPlanet().getMoney();
-            diamondLabel.Content = "diamond: " + minimap.getMotherPlanet().getDiamonds();
-            wheatLabel.Content = "wheat: " + minimap.getMotherPlanet().getWheat();
-            turboReactorLabel.Content = "turbo reactor: " + minimap.getMotherPlanet().getTurboReactors();
+            moneyLabel.Content = "money: " + minimap.getMotherPlanet().Money;
+            diamondLabel.Content = "diamond: " + minimap.getMotherPlanet().Diamond;
+            wheatLabel.Content = "wheat: " + minimap.getMotherPlanet().Wheat;
+            turboReactorLabel.Content = "turbo reactor: " + minimap.getMotherPlanet().TurboReactors;
 
-            foreignWheatLabel.Content = "wheat: " + currentlyShownPlanet.getWheat();
-            foreignDiamondLabel.Content = "diamond: " + currentlyShownPlanet.getDiamond();
-            foreignTurboReactorLabel.Content = "turbo reactors: " + currentlyShownPlanet.getTurboReactors();
+            foreignWheatLabel.Content = "wheat: " + currentlyShownPlanet.Wheat;
+            foreignDiamondLabel.Content = "diamond: " + currentlyShownPlanet.Diamond;
+            foreignTurboReactorLabel.Content = "turbo reactors: " + currentlyShownPlanet.TurboReactors;
         }
 
         public void setShownPlanet(Planet planet)

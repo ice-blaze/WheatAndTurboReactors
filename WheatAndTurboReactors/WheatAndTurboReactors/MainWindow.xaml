@@ -53,21 +53,23 @@
             <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109"/>
         </Canvas>
         <Canvas Margin="734,310,0,0" Height="206" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="Violet" MouseDown="Info_Canvas_MouseDown">
-            <DockPanel Height="206" Width="274">
-                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Top">
-                    <Label Content="Ship name :" />
-                    <Label Content="Cargo :" />
-                </StackPanel>
-                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Top" >
-                    <Label Name="shipShowName" />
-                    <Label Name="shipShowCargo" />
-                </StackPanel>
-                <StackPanel DockPanel.Dock="Bottom"  VerticalAlignment="Bottom">
-                    <Button Content="Start trip" Click="Start_Trip_Click">
-                        
-                    </Button>
-                </StackPanel>
-            </DockPanel>
+            
+            <StackPanel DockPanel.Dock="Bottom"  VerticalAlignment="Bottom">
+                <DockPanel Width="274">
+                    <StackPanel DockPanel.Dock="Left" VerticalAlignment="Top">
+                        <Label Content="Ship name :" />
+                        <Label Content="Cargo :" />
+                        <Label Content="Planet :" />
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" VerticalAlignment="Top" >
+                        <Label Name="shipShowName" />
+                        <Label Name="shipShowCargo" />
+                        <Label Name="shipShowPlanet" />
+                    </StackPanel>
+                </DockPanel>
+                <Button Content="Start trip" Click="Start_Trip_Click">      
+                </Button>
+            </StackPanel>
             
         </Canvas>
         
