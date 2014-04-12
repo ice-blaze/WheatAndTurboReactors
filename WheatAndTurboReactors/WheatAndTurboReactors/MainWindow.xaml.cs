@@ -122,7 +122,7 @@ namespace WheatAndTurboReactors
             }
         }
 
-        private void hideBuyShipsPanel()
+        public void hideBuyShipsPanel()
         {
             Canvas buyingLayout = (Canvas)this.FindName("BuyShipLayout");
             buyingLayout.Margin = new Thickness(-2000, -2000, buyingLayout.Margin.Right, buyingLayout.Margin.Bottom);

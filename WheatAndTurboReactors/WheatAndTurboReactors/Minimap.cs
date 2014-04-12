@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -105,10 +106,11 @@ namespace WheatAndTurboReactors
                     updateInformation(planet);
                     planet.setDiscovered(true);
                     drawDiscoveredPlanets(canvas);
-                    
-                }
-                
 
+                    //set the scale of the minimap to classic view
+                    (canvas.RenderTransform as ScaleTransform).ScaleX = 1;
+                    (canvas.RenderTransform as ScaleTransform).ScaleY = 1;
+                }
             }
         }
 
