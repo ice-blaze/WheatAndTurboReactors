@@ -22,7 +22,9 @@ namespace WheatAndTurboReactors
         private int level;
         private string name;
         private Planet planetShip;
+        private bool isTravlin;
         static private MotherPlanet motherPlanet;
+        static private Ship lastShipSelected = null;
 
         // bitmap (imageloader?)
         public Ship(int _level, string _name = "NaN name")
@@ -44,6 +46,7 @@ namespace WheatAndTurboReactors
                     break;
             }
             planetShip = motherPlanet;
+            isTravlin = false;
         }
 
         public Ship(string _level, string _name = "NaN name")
@@ -54,22 +57,13 @@ namespace WheatAndTurboReactors
 
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
+            get { return name; }
+            set { name = value; }
         }
 
         public int Container
         {
-            get
-            {
-                return container;
-            }
+            get { return container; }
             set
             {
                 int somme = container + value;
@@ -80,31 +74,21 @@ namespace WheatAndTurboReactors
             }
         }
 
-        public int ContainerMax
+        public bool IsTravlin
         {
-            get
-            {
-                return containerMax;
-            }
+            get { return isTravlin; }
+            set { isTravlin = value; }
         }
 
-        static public MotherPlanet MotherPlanet
+        public int ContainerMax
         {
-            get
-            {
-                return motherPlanet;
-            }
-            set
-            {
-                motherPlanet = value;
-            }
+            get { return containerMax; }
         }
+        
         public Planet PlanetShip
         {
-            get
-            {
-                return planetShip;
-            }
+            get { return planetShip; }
+            set { planetShip = value; }
         }
 
         private static int convertLevel(string level)
@@ -128,6 +112,17 @@ namespace WheatAndTurboReactors
         public string show()
         {
             return name + " " + level.ToString();
+        }
+
+        static public Ship LastShipSelected
+        {
+            get { return lastShipSelected; }
+            set { lastShipSelected = value; }
+        }
+        static public MotherPlanet MotherPlanet
+        {
+            get { return motherPlanet; }
+            set { motherPlanet = value; }
         }
     }
 }

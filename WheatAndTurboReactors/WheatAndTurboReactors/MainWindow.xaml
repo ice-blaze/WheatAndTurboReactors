@@ -60,11 +60,13 @@
                         <Label Content="Ship name :" />
                         <Label Content="Cargo :" />
                         <Label Content="Planet :" />
+                        <Label Content="Is tripin :" />
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Right" VerticalAlignment="Top" >
                         <Label Name="shipShowName" />
                         <Label Name="shipShowCargo" />
                         <Label Name="shipShowPlanet" />
+                        <Label Name="shipShowTripStatus" />
                     </StackPanel>
                 </DockPanel>
                 <Button Content="Start trip" Click="Start_Trip_Click">      
@@ -89,5 +91,4 @@
             </Canvas>
         </Canvas>
     </Grid>
-    
 </Window>

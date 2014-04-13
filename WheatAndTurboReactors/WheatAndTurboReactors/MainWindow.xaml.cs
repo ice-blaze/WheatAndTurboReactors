@@ -23,6 +23,7 @@ namespace WheatAndTurboReactors
         List<Button> shipButtons = new List<Button>();
         List<Ship> ships = new List<Ship>();
         Minimap minimap;
+        bool shipTripSelectionMod = false;
 
         public MainWindow()
         {
@@ -72,16 +73,24 @@ namespace WheatAndTurboReactors
                     ship = ships[i];
                 }
             }
+            Ship.LastShipSelected = ship;
+            shipShow();
+        }
 
+        public void shipShow()
+        {
+            Ship ship = Ship.LastShipSelected;
             Label lblShipName = (Label)this.FindName("shipShowName");
             Label lblShipCargo = (Label)this.FindName("shipShowCargo");
             Label lblShipPlanet = (Label)this.FindName("shipShowPlanet");
+            Label lblShipTripStatus = (Label)this.FindName("shipShowTripStatus");
 
             lblShipName.Content = ship.Name;
-            lblShipCargo.Content = ship.Container.ToString()+"/"+ship.ContainerMax.ToString();
+            lblShipCargo.Content = ship.Container.ToString() + "/" + ship.ContainerMax.ToString();
             lblShipPlanet.Content = ship.PlanetShip.Name;
-            //faire ce quon a envie de faire pour ce ship
-            //MessageBox.Show(ship.Name);
+
+            if (ship.IsTravlin) { lblShipTripStatus.Content = "Yes"; }
+            else { lblShipTripStatus.Content = "No"; }
         }
 
         private void Buy_Ships_Click(object sender, RoutedEventArgs e)
@@ -163,6 +172,7 @@ namespace WheatAndTurboReactors
 
         private void Start_Trip_Click(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null) { MessageBox.Show("No ship selected"); return; }
             Canvas minimap = (Canvas)this.FindName("minimapCanvas");
             double mainWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
             double mainHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
@@ -170,6 +180,24 @@ namespace WheatAndTurboReactors
             double diffY = 2 - minimap.Height / mainHeight;
             st.ScaleX = diffX;
             st.ScaleY = diffY;
+            startShipTripSelectionMod();
+        }
+
+        public void stopShipTripSelectionMod()
+        {
+            shipTripSelectionMod = false;
+        }
+
+        public void startShipTripSelectionMod()
+        {
+            shipTripSelectionMod = true;
+        }
+
+        public bool ShipTripSelectionMod
+        {
+            get { return shipTripSelectionMod; }
+            private
+            set { shipTripSelectionMod = value; }
         }
 
         static string ToUppercaseFirst(string s)

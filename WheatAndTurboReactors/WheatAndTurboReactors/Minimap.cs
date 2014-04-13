@@ -93,7 +93,10 @@ namespace WheatAndTurboReactors
         {
             foreach (Planet planet in planetList)
             {
-                if (e.GetPosition(canvas).X >= planet.x && e.GetPosition(canvas).X <= planet.x + planetSize && e.GetPosition(canvas).Y >= planet.y && e.GetPosition(canvas).Y <= planet.y + planetSize)
+                if (e.GetPosition(canvas).X >= planet.x &&
+                    e.GetPosition(canvas).X <= planet.x + planetSize &&
+                    e.GetPosition(canvas).Y >= planet.y &&
+                    e.GetPosition(canvas).Y <= planet.y + planetSize)
                 {
                     Console.WriteLine("planet is clicked");
                     setPlanetHighlight(planet);
@@ -104,6 +107,15 @@ namespace WheatAndTurboReactors
                     //set the scale of the minimap to classic view
                     (canvas.RenderTransform as ScaleTransform).ScaleX = 1;
                     (canvas.RenderTransform as ScaleTransform).ScaleY = 1;
+
+                    MainWindow mainWin = ((MainWindow)Application.Current.MainWindow);
+                    if (Ship.LastShipSelected != null && mainWin.ShipTripSelectionMod)
+                    {
+                        Ship.LastShipSelected.PlanetShip = planet;
+                        Ship.LastShipSelected.IsTravlin = true;
+                        mainWin.shipShow();
+                    }
+                    mainWin.stopShipTripSelectionMod();
                 }
             }
         }
