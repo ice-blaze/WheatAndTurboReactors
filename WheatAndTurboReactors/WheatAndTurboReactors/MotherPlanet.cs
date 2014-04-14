@@ -15,7 +15,7 @@ namespace WheatAndTurboReactors
         // background text
         int money, wheat, diamond, turboReactors;
         int wheatNorm, diamondNorm, turboReactorNorm;
-        int wheatGain;
+        public int wheatGain;
         public Ellipse planetImage;
         
 
@@ -38,7 +38,7 @@ namespace WheatAndTurboReactors
 
         public void addWheat(int _wheat)
         {
-            wheat += _wheat;
+            this.wheat += _wheat;
         }
 
         public int WheatGain
@@ -51,5 +51,24 @@ namespace WheatAndTurboReactors
             wheatGain += 1;
         }
 
+        public int getWheat()
+        {
+            return wheat;
+        }
+
+        public int getMoney()
+        {
+            return money;
+        }
+
+        public int getTurboReactors()
+        {
+            return TurboReactors;
+        }
+
+        public int getDiamond()
+        {
+            return diamond;
+        }
     }
 }
