@@ -11,9 +11,9 @@ namespace WheatAndTurboReactors
     class MotherPlanet: Planet
     {
         //TODO wheat production, ship list
-                // norms
+        // norms
         // background text
-        int money, wheat, diamond, turboReactors;
+        int money;
         int wheatNorm, diamondNorm, turboReactorNorm;
         public int wheatGain;
         public Ellipse planetImage;
@@ -38,7 +38,7 @@ namespace WheatAndTurboReactors
 
         public void addWheat(int _wheat)
         {
-            this.wheat += _wheat;
+            wheat += _wheat;
         }
 
         public int WheatGain
@@ -51,24 +51,12 @@ namespace WheatAndTurboReactors
             wheatGain += 1;
         }
 
-        public int getWheat()
-        {
-            return wheat;
-        }
 
         public int getMoney()
         {
             return money;
         }
 
-        public int getTurboReactors()
-        {
-            return TurboReactors;
-        }
 
-        public int getDiamond()
-        {
-            return diamond;
-        }
     }
 }

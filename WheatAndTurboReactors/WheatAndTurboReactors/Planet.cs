@@ -13,9 +13,9 @@ namespace WheatAndTurboReactors
     class Planet
     {
         public int x, y;
-        int wheat;
-        int diamond;
-        int turboReactors;
+        protected int wheat;
+        protected int diamond;
+        protected int turboReactors;
         string name;
         public Ellipse planetImage;
         public Brush brush;
