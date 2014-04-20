@@ -57,7 +57,7 @@ namespace WheatAndTurboReactors
 
             moneyLabel.Content = "money: " + minimap.getMotherPlanet().Money;
             diamondLabel.Content = "diamond: " + minimap.getMotherPlanet().Diamond;
-            wheatLabel.Content = "wheat: " + minimap.getMotherPlanet().getWheat();
+            wheatLabel.Content = "wheat: " + minimap.getMotherPlanet().Wheat;
             turboReactorLabel.Content = "turbo reactor: " + minimap.getMotherPlanet().TurboReactors;
 
             foreignWheatLabel.Content = "wheat: " + currentlyShownPlanet.Wheat;
