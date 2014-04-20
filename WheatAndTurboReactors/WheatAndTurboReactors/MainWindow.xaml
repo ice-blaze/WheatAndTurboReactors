@@ -46,13 +46,13 @@
             </Grid>
         </Canvas>
 
-        <Canvas Margin="734,0,0,0" Height="310" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
+        <Canvas Margin="734,0,0,0" Height="285" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
             <Label x:Name="titleLabel" Content="Label" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254"/>
             <Label x:Name="foreignWheatLabel" Content="Label" Canvas.Left="23" Canvas.Top="47"/>
             <Label x:Name="foreignDiamondLabel" Content="Label" Canvas.Left="23" Canvas.Top="78"/>
             <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109"/>
         </Canvas>
-        <Canvas Margin="734,310,0,0" Height="206" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="Violet" MouseDown="Info_Canvas_MouseDown">
+        <Canvas Margin="734,285,0,0" Height="231" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="Violet" MouseDown="Info_Canvas_MouseDown">
             
             <StackPanel DockPanel.Dock="Bottom"  VerticalAlignment="Bottom">
                 <DockPanel Width="274">
@@ -71,8 +71,32 @@
                 </DockPanel>
                 <Button Content="Start trip" Click="Start_Trip_Click">      
                 </Button>
+
+                <Grid Width="Auto" Height="Auto">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Buy :"/>
+                    <Button Grid.Column="0" Grid.Row="1" Content="Diamonds"/>
+                    <Button Grid.Column="1" Grid.Row="1" Content="Wheat"/>
+                    <Button Grid.Column="2" Grid.Row="1" Content="Turbo reactors"/>
+                    <Label Grid.Column="0" Grid.Row="2" Content="Sell :"/>
+                    <Button Grid.Column="0" Grid.Row="3" Content="Diamonds"/>
+                    <Button Grid.Column="1" Grid.Row="3" Content="Wheat"/>
+                    <Button Grid.Column="2" Grid.Row="3" Content="Turbo reactors"/>
+                </Grid>
+
             </StackPanel>
             
+
         </Canvas>
         
         <Canvas Name="minimapCanvas"  Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">

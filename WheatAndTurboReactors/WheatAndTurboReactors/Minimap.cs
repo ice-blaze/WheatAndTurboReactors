@@ -101,18 +101,19 @@ namespace WheatAndTurboReactors
                     Console.WriteLine("planet is clicked");
                     setPlanetHighlight(planet);
                     updateInformation(planet);
-                    planet.setDiscovered(true);
-                    drawDiscoveredPlanets(canvas);
+                    //planet.setDiscovered(true);
+                    //drawDiscoveredPlanets(canvas);
 
                     //set the scale of the minimap to classic view
                     (canvas.RenderTransform as ScaleTransform).ScaleX = 1;
                     (canvas.RenderTransform as ScaleTransform).ScaleY = 1;
 
                     MainWindow mainWin = ((MainWindow)Application.Current.MainWindow);
+                    // if we are in the selection mode (minimap over all the window) then set a planet and 
                     if (Ship.LastShipSelected != null && mainWin.ShipTripSelectionMod)
                     {
                         Ship.LastShipSelected.PlanetShip = planet;
-                        Ship.LastShipSelected.IsTravlin = true;
+                        Ship.LastShipSelected.startTrip(this);
                         mainWin.shipShow();
                     }
                     mainWin.stopShipTripSelectionMod();

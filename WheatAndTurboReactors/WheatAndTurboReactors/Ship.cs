@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace WheatAndTurboReactors
@@ -77,7 +79,25 @@ namespace WheatAndTurboReactors
         public bool IsTravlin
         {
             get { return isTravlin; }
-            set { isTravlin = value; }
+            set 
+            {
+                isTravlin = value;
+                MainWindow mainWin = ((MainWindow)Application.Current.MainWindow);
+                mainWin.shipShow();
+            }
+        }
+
+        public void startTrip(Minimap map)
+        {
+            isTravlin = true;
+            System.Threading.ThreadPool.QueueUserWorkItem(delegate(object obj)
+            {
+                // TODO define the time
+                Thread.Sleep(3000);
+                isTravlin = false;
+                planetShip.setDiscovered(true);
+            });
+            //start timer
         }
 
         public int ContainerMax

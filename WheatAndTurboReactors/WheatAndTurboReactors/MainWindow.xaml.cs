@@ -80,6 +80,7 @@ namespace WheatAndTurboReactors
         public void shipShow()
         {
             Ship ship = Ship.LastShipSelected;
+            if (ship == null) { return; }
             Label lblShipName = (Label)this.FindName("shipShowName");
             Label lblShipCargo = (Label)this.FindName("shipShowCargo");
             Label lblShipPlanet = (Label)this.FindName("shipShowPlanet");
@@ -89,8 +90,7 @@ namespace WheatAndTurboReactors
             lblShipCargo.Content = ship.Container.ToString() + "/" + ship.ContainerMax.ToString();
             lblShipPlanet.Content = ship.PlanetShip.Name;
 
-            if (ship.IsTravlin) { lblShipTripStatus.Content = "Yes"; }
-            else { lblShipTripStatus.Content = "No"; }
+            lblShipTripStatus.Content = (ship.IsTravlin) ? "Yes" : "No";
         }
 
         private void Buy_Ships_Click(object sender, RoutedEventArgs e)
@@ -173,6 +173,7 @@ namespace WheatAndTurboReactors
         private void Start_Trip_Click(object sender, RoutedEventArgs e)
         {
             if (Ship.LastShipSelected == null) { MessageBox.Show("No ship selected"); return; }
+            if (Ship.LastShipSelected.IsTravlin) { MessageBox.Show("The ship is travaling right now"); return; }
             Canvas minimap = (Canvas)this.FindName("minimapCanvas");
             double mainWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
             double mainHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
