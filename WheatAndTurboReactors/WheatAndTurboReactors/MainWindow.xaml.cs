@@ -235,40 +235,79 @@ namespace WheatAndTurboReactors
 
         private void btnBuyDiamond(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null)
+            {
+                messageBoxNoShip();
+                return;
+            }
             Ship.LastShipSelected.PlanetShip.buyDiamond();
             Ship.LastShipSelected.addDiamond(); //TODO messagebox if addDiamond returns false
+            shipShow();
         }
 
         private void btnBuyWheat(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null)
+            {
+                messageBoxNoShip();
+                return;
+            }
             Ship.LastShipSelected.PlanetShip.buyWheat();
             Ship.LastShipSelected.addWheat(); //TODO messagebox if addDiamond returns false
+            shipShow();
         }
 
         private void btnBuyTurboReactors(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null)
+            {
+                messageBoxNoShip();
+                return;
+            }
             Ship.LastShipSelected.PlanetShip.buyTurboReactors();
             Ship.LastShipSelected.addTurboReactors(); //TODO messagebox if addDiamond returns false
+            shipShow();
         }
 
         private void btnSellDiamond(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null)
+            {
+                messageBoxNoShip();
+                return;
+            }
             Ship.LastShipSelected.PlanetShip.sellDiamond();
             Ship.LastShipSelected.subDiamond();
+            shipShow();
         }
 
         private void btnSellWheat(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null)
+            {
+                messageBoxNoShip();
+                return;
+            }
             Ship.LastShipSelected.PlanetShip.sellWheat();
             Ship.LastShipSelected.subWheat();
+            shipShow();
         }
 
         private void btnSellTurboReactors(object sender, RoutedEventArgs e)
         {
+            if (Ship.LastShipSelected == null)
+            {
+                messageBoxNoShip();
+                return;
+            }
             Ship.LastShipSelected.PlanetShip.sellTurboReactors();
             Ship.LastShipSelected.subTurboReactors();
+            shipShow();
         }
 
-
+        private void messageBoxNoShip()
+        {
+            MessageBox.Show("There is no ship selected.");
+        }
     }
 }
