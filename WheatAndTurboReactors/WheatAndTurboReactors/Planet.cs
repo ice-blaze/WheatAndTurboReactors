@@ -13,7 +13,7 @@ namespace WheatAndTurboReactors
     class Planet
     {
         public int x, y;
-        protected int wheat;
+        protected double wheat;
         protected int diamond;
         protected int turboReactors;
         string name;
@@ -126,7 +126,7 @@ namespace WheatAndTurboReactors
             set { name = value; }
         }
 
-        public int Wheat
+        public double Wheat
         {
             get { return wheat; }
             set { wheat = value; }

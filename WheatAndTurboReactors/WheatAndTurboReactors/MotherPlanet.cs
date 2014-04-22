@@ -15,7 +15,7 @@ namespace WheatAndTurboReactors
         // background text
         static double money;
         int wheatNorm, diamondNorm, turboReactorNorm;
-        public int wheatGain;
+        public double wheatGain;
         public Ellipse planetImage;
         
 
@@ -27,7 +27,7 @@ namespace WheatAndTurboReactors
             brush = new SolidColorBrush(Colors.Red);
             base.planetImage.Fill = brush;
             base.discovered = true;
-            this.wheatGain = 1;
+            this.wheatGain = 0.2;
         }
 
         public static double Money
@@ -36,19 +36,25 @@ namespace WheatAndTurboReactors
             set { money = value; }
         }
 
-        public void addWheat(int _wheat)
+        public void addWheat(double _wheat)
         {
             wheat += _wheat;
         }
 
-        public int WheatGain
+        public double WheatGain
         {
             get { return wheatGain; }
         }
 
         public void addWheatGain()
-        {
-            wheatGain += 1;
+        { 
+            double cost = wheatGain * 10;
+            if(money > cost)
+            {
+                Console.WriteLine(cost);
+                money -= cost;
+                wheatGain += wheatGain * 0.5;
+            }
         }
 
         public override void buyDiamond()
