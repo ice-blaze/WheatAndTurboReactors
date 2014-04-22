@@ -6,16 +6,22 @@
         >
 
     <Grid>
-        <Canvas x:Name="playerRessources" Background="#FFD61F1F" Height="146" VerticalAlignment="Top" HorizontalAlignment="Left" Width="502" Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
-            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="10" Canvas.Top="10"/>
-            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="10" Canvas.Top="41"/>
-            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="10" Canvas.Top="103"/>
-            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="10" Canvas.Top="72"/>
+        <Canvas x:Name="playerRessources" Width="502" Height="146" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Backgrounds/mother_planet_panel.png"/>
+            </Canvas.Background>
+            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="35" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="Consolas" FontWeight="Bold"/>
+            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="181" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="Consolas" FontWeight="Bold"/>
+            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="181" Canvas.Top="78" Foreground="#FFFF4600" FontWeight="Bold" FontFamily="Consolas" FontSize="20"/>
+            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="35" Canvas.Top="78" Foreground="#FFFF4600" FontSize="20" FontFamily="Consolas" FontWeight="Bold"/>
         </Canvas>
 
-        <Canvas HorizontalAlignment="Left" Width="506" Margin="0,516,0,0" Height="146" VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
+        <Canvas HorizontalAlignment="Left" Width="506" Height="146" Margin="0,516,0,0"  VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
             <!--static values, we should inherite from the canvas-->
             <Grid Width="506" Height="146">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Backgrounds/buyship_panel.png"/>
+                </Grid.Background>
                 <!--<Button Grid.Row="0" Grid.Column="1">Buy new ships</Button>
                 <Button Grid.Row="0" Grid.Column="1">CUCU</Button>-->
 
@@ -41,20 +47,26 @@
 
                 <Button Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,10,10" Content="Buy some &#x0a;cool ships" Click="Buy_Ships_Click" HorizontalAlignment="Right" Width="80"  />
 
-                <Button x:Name="improve_wheat_production" Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,-491,10" Content="improve wheat production" Click="boughtProduction" HorizontalAlignment="Right" Width="80"  />
+                <Button x:Name="improve_wheat_production" Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,30,-473,32" Content="improve wheat production" Click="boughtProduction" HorizontalAlignment="Right" Width="87"  />
 
             </Grid>
         </Canvas>
 
-        <Canvas Margin="734,0,0,0" Height="285" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="#FF888D22" MouseDown="Info_Canvas_MouseDown">
-            <Label x:Name="titleLabel" Content="Label" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254"/>
-            <Label x:Name="foreignWheatLabel" Content="Label" Canvas.Left="23" Canvas.Top="47"/>
-            <Label x:Name="foreignDiamondLabel" Content="Label" Canvas.Left="23" Canvas.Top="78"/>
-            <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109"/>
+        <Canvas Margin="734,0,0,0" Height="285" Width="274" VerticalAlignment="Top" HorizontalAlignment="Left" MouseDown="Info_Canvas_MouseDown">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Backgrounds/planet_panel.png"/>
+            </Canvas.Background>
+            <Label x:Name="titleLabel" Content="Label" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
+            <Label x:Name="foreignWheatLabel" Content="Label" Canvas.Left="23" Canvas.Top="47" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
+            <Label x:Name="foreignDiamondLabel" Content="Label" Canvas.Left="23" Canvas.Top="78" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
+            <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
         </Canvas>
-        <Canvas Margin="734,285,0,0" Height="231" VerticalAlignment="Top" HorizontalAlignment="Left" Width="274" Background="Violet" MouseDown="Info_Canvas_MouseDown">
-            
-            <StackPanel DockPanel.Dock="Bottom"  VerticalAlignment="Bottom">
+        <Canvas Margin="734,285,0,0" Height="231" Width="274" VerticalAlignment="Top" HorizontalAlignment="Left"  MouseDown="Info_Canvas_MouseDown">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Backgrounds/ship_panel.png"/>
+            </Canvas.Background>
+
+            <StackPanel DockPanel.Dock="Bottom"  VerticalAlignment="Bottom" >
                 <DockPanel Width="274">
                     <StackPanel DockPanel.Dock="Left" VerticalAlignment="Top">
                         <Label Content="Ship name :" />
@@ -69,7 +81,7 @@
                         <Label Name="shipShowTripStatus" />
                     </StackPanel>
                 </DockPanel>
-                <Button Content="Start trip" Click="Start_Trip_Click">      
+                <Button Content="Start trip" Click="Start_Trip_Click">
                 </Button>
 
                 <Grid Width="Auto" Height="Auto">
@@ -95,15 +107,18 @@
                 </Grid>
 
             </StackPanel>
-            
 
         </Canvas>
-        
-        <Canvas Name="minimapCanvas"  Background="Black" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">
+
+        <Canvas Name="minimapCanvas" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Backgrounds/main.jpg"/>
+            </Canvas.Background>
             <Canvas.RenderTransform>
                 <ScaleTransform x:Name="st"/>
             </Canvas.RenderTransform>
         </Canvas>
+        <Canvas Name="minimapGrid" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" />
 
         <Canvas Name="BuyShipLayout" Background="Black" Opacity="0.8" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="-1200,-252,0,0">
             <Canvas Background="White" Height="432" Canvas.Top="111" Width="1008">

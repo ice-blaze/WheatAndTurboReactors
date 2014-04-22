@@ -102,6 +102,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Backgrounds\mother_planet_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Backgrounds\main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Backgrounds\planet_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Backgrounds\ship_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Backgrounds\buyship_panel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
