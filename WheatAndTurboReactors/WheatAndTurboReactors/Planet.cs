@@ -68,33 +68,28 @@ namespace WheatAndTurboReactors
 
         }
 
-         public void buyDiamond()
+        public virtual void buyDiamond()
         {
         }
 
         public virtual void buyWheat()
         {
-
         }
 
         public virtual void buyTurboReactors()
         {
-
         }
 
         public virtual void sellDiamond()
         {
-
         }
 
         public virtual void sellWheat()
         {
-
         }
 
         public virtual void sellTurboReactors()
         {
-
         }
 
         public virtual bool isDiscovered()
@@ -146,6 +141,11 @@ namespace WheatAndTurboReactors
         public int TurboReactors
         {
             get { return turboReactors; }            
+        }
+
+        public virtual void updateView()
+        {
+
         }
 
         

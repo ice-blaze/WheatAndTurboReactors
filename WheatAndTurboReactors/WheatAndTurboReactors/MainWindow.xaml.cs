@@ -241,7 +241,6 @@ namespace WheatAndTurboReactors
                 return;
             }
             Ship.LastShipSelected.PlanetShip.buyDiamond();
-            Ship.LastShipSelected.addDiamond(); //TODO messagebox if addDiamond returns false
             shipShow();
         }
 
@@ -253,7 +252,6 @@ namespace WheatAndTurboReactors
                 return;
             }
             Ship.LastShipSelected.PlanetShip.buyWheat();
-            Ship.LastShipSelected.addWheat(); //TODO messagebox if addDiamond returns false
             shipShow();
         }
 
@@ -265,7 +263,6 @@ namespace WheatAndTurboReactors
                 return;
             }
             Ship.LastShipSelected.PlanetShip.buyTurboReactors();
-            Ship.LastShipSelected.addTurboReactors(); //TODO messagebox if addDiamond returns false
             shipShow();
         }
 
@@ -277,7 +274,6 @@ namespace WheatAndTurboReactors
                 return;
             }
             Ship.LastShipSelected.PlanetShip.sellDiamond();
-            Ship.LastShipSelected.subDiamond();
             shipShow();
         }
 
@@ -289,7 +285,6 @@ namespace WheatAndTurboReactors
                 return;
             }
             Ship.LastShipSelected.PlanetShip.sellWheat();
-            Ship.LastShipSelected.subWheat();
             shipShow();
         }
 
@@ -301,7 +296,6 @@ namespace WheatAndTurboReactors
                 return;
             }
             Ship.LastShipSelected.PlanetShip.sellTurboReactors();
-            Ship.LastShipSelected.subTurboReactors();
             shipShow();
         }
 

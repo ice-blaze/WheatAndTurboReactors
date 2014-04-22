@@ -13,7 +13,7 @@ namespace WheatAndTurboReactors
         //TODO wheat production, ship list
         // norms
         // background text
-        int money;
+        static double money;
         int wheatNorm, diamondNorm, turboReactorNorm;
         public int wheatGain;
         public Ellipse planetImage;
@@ -30,7 +30,7 @@ namespace WheatAndTurboReactors
             this.wheatGain = 1;
         }
 
-        public int Money
+        public static double Money
         {
             get { return money; }
             set { money = value; }
@@ -51,10 +51,46 @@ namespace WheatAndTurboReactors
             wheatGain += 1;
         }
 
-
-        public int getMoney()
+        public override void buyDiamond()
         {
-            return money;
+            if (diamond > 0) 
+            {
+                diamond--;
+                Ship.LastShipSelected.addDiamond(); //TODO messagebox if addDiamond returns false
+            }
+        }
+
+        public override void buyWheat()
+        {
+            if (wheat > 0)
+            {
+                wheat--;
+                Ship.LastShipSelected.addWheat(); //TODO messagebox if addDiamond returns false
+            }
+        }
+
+        public override void buyTurboReactors()
+        {
+            if (turboReactors > 0)
+            {
+                turboReactors--;
+                Ship.LastShipSelected.addTurboReactors(); //TODO messagebox if addDiamond returns false
+            }
+        }
+
+        public override void sellDiamond()
+        {
+            if (Ship.LastShipSelected.subDiamond() == true) { diamond++; }
+        }
+
+        public override void sellWheat()
+        {
+            if (Ship.LastShipSelected.subWheat() == true) { wheat++; }
+        }
+
+        public override void sellTurboReactors()
+        {
+            if (Ship.LastShipSelected.subTurboReactors() == true) { turboReactors++; }
         }
 
 
