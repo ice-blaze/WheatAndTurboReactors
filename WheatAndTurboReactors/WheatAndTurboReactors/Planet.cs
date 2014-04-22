@@ -68,6 +68,35 @@ namespace WheatAndTurboReactors
 
         }
 
+         public void buyDiamond()
+        {
+        }
+
+        public virtual void buyWheat()
+        {
+
+        }
+
+        public virtual void buyTurboReactors()
+        {
+
+        }
+
+        public virtual void sellDiamond()
+        {
+
+        }
+
+        public virtual void sellWheat()
+        {
+
+        }
+
+        public virtual void sellTurboReactors()
+        {
+
+        }
+
         public virtual bool isDiscovered()
         {
             return discovered;

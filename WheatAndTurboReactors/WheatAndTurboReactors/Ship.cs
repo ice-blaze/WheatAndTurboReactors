@@ -20,6 +20,9 @@ namespace WheatAndTurboReactors
         public const int BIG_SHIP_SIZE = 200;
 
         private int container;
+        private int wheat;
+        private int diamond;
+        private int turboReactors;
         private int containerMax;
         private int level;
         private string name;
@@ -33,6 +36,10 @@ namespace WheatAndTurboReactors
         {
             level = _level;
             name = _name;
+
+            wheat = 0;
+            turboReactors = 0;
+            diamond = 0;
 
             // adding the correct countner size in function with the level
             switch (level)
@@ -111,6 +118,73 @@ namespace WheatAndTurboReactors
             set { planetShip = value; }
         }
 
+        public int Wheat
+        {
+            get { return wheat; }
+            set { wheat = value; }
+        }
+
+        public bool addWheat()
+        {
+            if (container == containerMax) { return false; }
+            container++;
+            wheat++;
+            return true;
+        }
+
+        public bool subWheat()
+        {
+            if (wheat == 0) { return false; }
+            container--; 
+            wheat--;
+            
+            return true;
+        }
+
+        public int Diamond
+        {
+            get { return diamond; }
+            set { diamond = value; }
+        }
+
+        public bool addDiamond()
+        {
+            if (container == containerMax) { return false; }
+            container++;
+            diamond++;
+            return true;
+        }
+
+        public bool subDiamond()
+        {
+            if (diamond == 0) { return false; }
+            diamond--;
+            container--;
+            return true;
+        }
+
+        public int TurboReactors
+        {
+            get { return turboReactors; }
+            set { turboReactors = value; }
+        }
+
+        public bool addTurboReactors()
+        {
+            if (container == containerMax) { return false; }
+            container++;
+            turboReactors++;
+            return true;
+        }
+
+        public bool subTurboReactors()
+        {
+            if (turboReactors == 0) { return false; }
+            turboReactors--;
+            container--;
+            return true;
+        }
+
         private static int convertLevel(string level)
         {
             level = level.ToLower();
@@ -144,5 +218,8 @@ namespace WheatAndTurboReactors
             get { return motherPlanet; }
             set { motherPlanet = value; }
         }
+
+       
+
     }
 }

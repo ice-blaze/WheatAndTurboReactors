@@ -85,13 +85,13 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Buy :"/>
-                    <Button Grid.Column="0" Grid.Row="1" Content="Diamonds"/>
-                    <Button Grid.Column="1" Grid.Row="1" Content="Wheat"/>
-                    <Button Grid.Column="2" Grid.Row="1" Content="Turbo reactors"/>
+                    <Button Grid.Column="0" Grid.Row="1" Content="Diamonds" Click="btnBuyDiamond"/>
+                    <Button Grid.Column="1" Grid.Row="1" Content="Wheat" Click="btnBuyWheat"/>
+                    <Button Grid.Column="2" Grid.Row="1" Content="Turbo reactors" Click="btnBuyTurboReactors"/>
                     <Label Grid.Column="0" Grid.Row="2" Content="Sell :"/>
-                    <Button Grid.Column="0" Grid.Row="3" Content="Diamonds"/>
-                    <Button Grid.Column="1" Grid.Row="3" Content="Wheat"/>
-                    <Button Grid.Column="2" Grid.Row="3" Content="Turbo reactors"/>
+                    <Button Grid.Column="0" Grid.Row="3" Content="Diamonds" Click="btnSellDiamond"/>
+                    <Button Grid.Column="1" Grid.Row="3" Content="Wheat" Click="btnSellWheat"/>
+                    <Button Grid.Column="2" Grid.Row="3" Content="Turbo reactors" Click="btnSellTurboReactors"/>
                 </Grid>
 
             </StackPanel>

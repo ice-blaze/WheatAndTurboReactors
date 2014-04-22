@@ -232,5 +232,43 @@ namespace WheatAndTurboReactors
             minimap.getMotherPlanet().addWheatGain();
         }
 
+
+        private void btnBuyDiamond(object sender, RoutedEventArgs e)
+        {
+            Ship.LastShipSelected.PlanetShip.buyDiamond();
+            Ship.LastShipSelected.addDiamond(); //TODO messagebox if addDiamond returns false
+        }
+
+        private void btnBuyWheat(object sender, RoutedEventArgs e)
+        {
+            Ship.LastShipSelected.PlanetShip.buyWheat();
+            Ship.LastShipSelected.addWheat(); //TODO messagebox if addDiamond returns false
+        }
+
+        private void btnBuyTurboReactors(object sender, RoutedEventArgs e)
+        {
+            Ship.LastShipSelected.PlanetShip.buyTurboReactors();
+            Ship.LastShipSelected.addTurboReactors(); //TODO messagebox if addDiamond returns false
+        }
+
+        private void btnSellDiamond(object sender, RoutedEventArgs e)
+        {
+            Ship.LastShipSelected.PlanetShip.sellDiamond();
+            Ship.LastShipSelected.subDiamond();
+        }
+
+        private void btnSellWheat(object sender, RoutedEventArgs e)
+        {
+            Ship.LastShipSelected.PlanetShip.sellWheat();
+            Ship.LastShipSelected.subWheat();
+        }
+
+        private void btnSellTurboReactors(object sender, RoutedEventArgs e)
+        {
+            Ship.LastShipSelected.PlanetShip.sellTurboReactors();
+            Ship.LastShipSelected.subTurboReactors();
+        }
+
+
     }
 }
