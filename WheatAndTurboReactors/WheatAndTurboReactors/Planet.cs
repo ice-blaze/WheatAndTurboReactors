@@ -13,7 +13,7 @@ namespace WheatAndTurboReactors
     class Planet
     {
         public int x, y;
-        protected int wheat;
+        protected double wheat;
         protected int diamond;
         protected int turboReactors;
         string name;
@@ -68,33 +68,28 @@ namespace WheatAndTurboReactors
 
         }
 
-         public void buyDiamond()
+        public virtual void buyDiamond()
         {
         }
 
         public virtual void buyWheat()
         {
-
         }
 
         public virtual void buyTurboReactors()
         {
-
         }
 
         public virtual void sellDiamond()
         {
-
         }
 
         public virtual void sellWheat()
         {
-
         }
 
         public virtual void sellTurboReactors()
         {
-
         }
 
         public virtual bool isDiscovered()
@@ -131,7 +126,7 @@ namespace WheatAndTurboReactors
             set { name = value; }
         }
 
-        public int Wheat
+        public double Wheat
         {
             get { return wheat; }
             set { wheat = value; }
@@ -146,6 +141,11 @@ namespace WheatAndTurboReactors
         public int TurboReactors
         {
             get { return turboReactors; }            
+        }
+
+        public virtual void updateView()
+        {
+
         }
 
         

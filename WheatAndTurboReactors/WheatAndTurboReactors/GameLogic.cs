@@ -55,11 +55,12 @@ namespace WheatAndTurboReactors
             Label foreignDiamondLabel = (Label)parent.FindName("foreignDiamondLabel");
             Label foreignTurboReactorLabel = (Label)parent.FindName("foreignTurboReactorLabel");
 
-            moneyLabel.Content = "money: " + minimap.getMotherPlanet().Money;
+            moneyLabel.Content = "money: " + MotherPlanet.Money;
             diamondLabel.Content = "diamond: " + minimap.getMotherPlanet().Diamond;
-            wheatLabel.Content = "wheat: " + minimap.getMotherPlanet().Wheat;
+            wheatLabel.Content = "wheat: " + (int)minimap.getMotherPlanet().Wheat;
             turboReactorLabel.Content = "turbo reactor: " + minimap.getMotherPlanet().TurboReactors;
 
+            currentlyShownPlanet.updateView();
             foreignWheatLabel.Content = "wheat: " + currentlyShownPlanet.Wheat;
             foreignDiamondLabel.Content = "diamond: " + currentlyShownPlanet.Diamond;
             foreignTurboReactorLabel.Content = "turbo reactors: " + currentlyShownPlanet.TurboReactors;

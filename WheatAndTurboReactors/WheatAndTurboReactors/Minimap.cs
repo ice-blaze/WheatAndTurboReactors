@@ -26,10 +26,10 @@ namespace WheatAndTurboReactors
 
             //replace this by reading from a file
             //-------------------------------------------------------------------------------------
-            ForeignPlanet lonelyPlanet = new ForeignPlanet("lonely planet",150, 20, 100, 100, 100);
-            ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 100, 100, 100);
-            ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 100, 100, 100);
-            ForeignPlanet loPlanet = new ForeignPlanet("pissus", 100, 120, 100, 100, 100);
+            ForeignPlanet lonelyPlanet = new ForeignPlanet("lonely planet",150, 20, 2, 150, 50);
+            ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 3, 100, 100);
+            ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 5, 100, 100);
+            ForeignPlanet loPlanet = new ForeignPlanet("pissus", 100, 120, 2, 100, 100);
             ForeignPlanet farPlanet = new ForeignPlanet("couillus", 200, 10, 100, 100, 100);
             ForeignPlanet guy = new ForeignPlanet("jameder", 60, 300, 0, 0, 0);
             ForeignPlanet et = new ForeignPlanet("cokandballs", 100, 200, 0, 0, 0);
