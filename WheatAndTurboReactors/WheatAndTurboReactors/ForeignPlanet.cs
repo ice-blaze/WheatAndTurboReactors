@@ -47,7 +47,7 @@ namespace WheatAndTurboReactors
         {
             if(MotherPlanet.Money >= diamondPrice)
             {
-                MotherPlanet.Money -= diamondPrice;
+                MotherPlanet.Money -= (int)diamondPrice;
                 Ship.LastShipSelected.addDiamond();
                 diamondPrice += diamondPrice * diamondPriceVariation*10;
                 updateView();
@@ -58,7 +58,7 @@ namespace WheatAndTurboReactors
         {
             if(MotherPlanet.Money >= wheatPrice)
             {
-                MotherPlanet.Money -= wheatPrice;
+                MotherPlanet.Money -= (int)wheatPrice;
                 Ship.LastShipSelected.addWheat();
                 wheatPrice += wheatPrice * wheatPriceVariation*10;
                 updateView();
@@ -69,7 +69,7 @@ namespace WheatAndTurboReactors
         {
             if (MotherPlanet.Money >= turboReactorPrice)
             {
-                MotherPlanet.Money -= turboReactorPrice;
+                MotherPlanet.Money -= (int)turboReactorPrice;
                 Ship.LastShipSelected.addTurboReactors();
                 turboReactorPrice += turboReactorPrice * turboReactorPriceVariation*10;
                 updateView();
@@ -80,7 +80,7 @@ namespace WheatAndTurboReactors
         {
             if (Ship.LastShipSelected.subDiamond() == true)
             {
-                MotherPlanet.Money = MotherPlanet.Money + diamondPrice;
+                MotherPlanet.Money += (int)diamondPrice;
                 diamondPrice -= diamondPrice * diamondPriceVariation * 10;
             }
         }
@@ -89,7 +89,7 @@ namespace WheatAndTurboReactors
         {
             if(Ship.LastShipSelected.subWheat() == true)
             {
-                MotherPlanet.Money = MotherPlanet.Money + wheatPrice;
+                MotherPlanet.Money += (int)wheatPrice;
                 wheatPrice -= wheatPrice * wheatPriceVariation * 10;
             }
         }
@@ -98,7 +98,7 @@ namespace WheatAndTurboReactors
         {
             if (Ship.LastShipSelected.subTurboReactors() == true)
             {
-                MotherPlanet.Money = MotherPlanet.Money + turboReactorPrice;
+                MotherPlanet.Money += (int)turboReactorPrice;
                 turboReactorPrice -= turboReactorPrice * turboReactorPriceVariation * 10;
             }
         }

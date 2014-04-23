@@ -311,6 +311,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.buyDiamond();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnBuyWheat(object sender, RoutedEventArgs e)
@@ -322,6 +323,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.buyWheat();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnBuyTurboReactors(object sender, RoutedEventArgs e)
@@ -333,6 +335,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.buyTurboReactors();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnSellDiamond(object sender, RoutedEventArgs e)
@@ -344,6 +347,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.sellDiamond();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnSellWheat(object sender, RoutedEventArgs e)
@@ -355,6 +359,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.sellWheat();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnSellTurboReactors(object sender, RoutedEventArgs e)
@@ -366,6 +371,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.sellTurboReactors();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void messageBoxNoShip()
