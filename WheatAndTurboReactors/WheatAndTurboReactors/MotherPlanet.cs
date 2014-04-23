@@ -53,7 +53,7 @@ namespace WheatAndTurboReactors
             {
                 Console.WriteLine(cost);
                 money -= cost;
-                wheatGain += wheatGain * 0.5;
+                wheatGain += wheatGain * 0.3;
             }
         }
 

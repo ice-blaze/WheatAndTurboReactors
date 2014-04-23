@@ -20,13 +20,20 @@ namespace WheatAndTurboReactors
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
         List<Button> shipButtons = new List<Button>();
         List<Ship> ships = new List<Ship>();
         Minimap minimap;
         bool shipTripSelectionMod = false;
+        Canvas canvas;
+        Rectangle rectangle;
         DispatcherTimer gridTimer;
+        DispatcherTimer animationTimer;
+        double rotationAngle;
+        const int size = 20;
 
         public MainWindow()
         {
@@ -36,6 +43,46 @@ namespace WheatAndTurboReactors
             gridTimer.Tick += new EventHandler(drawMinimapGrid);
             gridTimer.Interval = new TimeSpan(0, 0, 0);
             gridTimer.Start();
+
+
+            rectangle = new Rectangle();
+
+            Brush brush = new SolidColorBrush(Colors.LawnGreen);
+            rectangle.Fill = brush;
+            rectangle.Width = size;
+            rectangle.Height = size;
+            rotationAngle = 0;
+            animationTimer = new DispatcherTimer();
+            animationTimer.Tick += new EventHandler(rotateRectangle);
+            animationTimer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            animationTimer.Start();
+
+        }
+
+        private void rotateRectangle(object sender, EventArgs e)
+        {
+            rotationAngle += 3;
+            drawShipLocation();
+        }
+
+        private void drawShipLocation()
+        {
+
+            Ship ship = Ship.LastShipSelected;
+            if(ship != null)
+            {
+
+                canvas.Children.Remove(rectangle);
+                Canvas.SetLeft(rectangle, ship.PlanetShip.x);
+                Canvas.SetTop(rectangle, ship.PlanetShip.y);
+
+                RotateTransform rotateTransform1 = new RotateTransform(rotationAngle, size/2, size/2);
+                rectangle.RenderTransform = rotateTransform1;
+
+                canvas.Children.Add(rectangle);
+            }
+            
+
         }
 
         private void MiniMap_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -63,10 +110,12 @@ namespace WheatAndTurboReactors
         private void Minimap_Canvas_Loaded(object sender, RoutedEventArgs e)
         {
             minimap = new Minimap();
+            this.canvas = sender as Canvas;
             Canvas canvas = sender as Canvas;
             minimap.initMinimap(canvas, this);
             GameLogic gameLogic = new GameLogic(this, minimap);
             minimap.setGameLogic(gameLogic);
+
         }
 
         public void shipShow(object sender, RoutedEventArgs e)
@@ -99,6 +148,8 @@ namespace WheatAndTurboReactors
             lblShipPlanet.Content = ship.PlanetShip.Name;
 
             lblShipTripStatus.Content = (ship.IsTravlin) ? "Yes" : "No";
+
+            drawShipLocation();
         }
 
         private void Buy_Ships_Click(object sender, RoutedEventArgs e)

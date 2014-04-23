@@ -15,9 +15,9 @@ namespace WheatAndTurboReactors
         public const int SMALL_LEVEL = 0;
         public const int MEDIUM_LEVEL = 1;
         public const int BIG_LEVEL = 2;
-        public const int SMALL_SHIP_SIZE = 50;
-        public const int MEDIUM_SHIP_SIZE = 100;
-        public const int BIG_SHIP_SIZE = 200;
+        public const int SMALL_SHIP_SIZE = 15;
+        public const int MEDIUM_SHIP_SIZE = 50;
+        public const int BIG_SHIP_SIZE = 100;
 
         private int container;
         private int wheat;

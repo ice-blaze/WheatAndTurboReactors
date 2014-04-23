@@ -27,19 +27,19 @@ namespace WheatAndTurboReactors
             //replace this by reading from a file
             //-------------------------------------------------------------------------------------
             ForeignPlanet lonelyPlanet = new ForeignPlanet("lonely planet",150, 20, 2, 150, 50);
-            ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 3, 100, 100);
-            ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 5, 100, 100);
+            ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 3, 200, 100);
+            ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 5, 130, 120);
             ForeignPlanet loPlanet = new ForeignPlanet("pissus", 100, 120, 2, 100, 100);
-            ForeignPlanet farPlanet = new ForeignPlanet("couillus", 200, 10, 100, 100, 100);
-            ForeignPlanet guy = new ForeignPlanet("jameder", 60, 300, 0, 0, 0);
-            ForeignPlanet et = new ForeignPlanet("cokandballs", 100, 200, 0, 0, 0);
-            ForeignPlanet lanet = new ForeignPlanet("bitchslap", 150, 310, 0, 0, 0);
-            ForeignPlanet uy = new ForeignPlanet("crashed", 40, 100, 0, 0, 0);
-            ForeignPlanet laneti = new ForeignPlanet("or not", 100, 350, 0, 0, 0);
-            ForeignPlanet faret = new ForeignPlanet("speedimus", 10, 120, 0, 0, 0);
-            ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 0, 0, 0);
+            ForeignPlanet farPlanet = new ForeignPlanet("couillus", 200, 10, 10, 20, 500);
+            ForeignPlanet guy = new ForeignPlanet("jameder", 60, 300, 4, 150, 200);
+            ForeignPlanet et = new ForeignPlanet("cokandballs", 100, 200, 1, 200, 100);
+            ForeignPlanet lanet = new ForeignPlanet("bitchslap", 150, 310, 4, 150, 100);
+            ForeignPlanet uy = new ForeignPlanet("crashed", 40, 100, 6, 200, 300);
+            ForeignPlanet laneti = new ForeignPlanet("or not", 100, 350, 12, 150, 200);
+            ForeignPlanet faret = new ForeignPlanet("speedimus", 10, 120, 9, 200, 500);
+            ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 3, 20, 200);
 
-            motherPlanet = new MotherPlanet("mother planet", 10, 10, 0, 0, 0);
+            motherPlanet = new MotherPlanet("mother planet", 10, 10, 10, 0, 0);
             Ship.MotherPlanet = motherPlanet;
 
             planetList = new List<Planet>();
