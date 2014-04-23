@@ -71,6 +71,7 @@ namespace WheatAndTurboReactors
         {
             if (wheat > 0)
             {
+                Console.WriteLine("pass");
                 wheat--;
                 Ship.LastShipSelected.addWheat(); //TODO messagebox if addDiamond returns false
             }

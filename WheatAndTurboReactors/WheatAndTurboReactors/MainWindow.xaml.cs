@@ -32,6 +32,7 @@ namespace WheatAndTurboReactors
         Rectangle rectangle;
         DispatcherTimer gridTimer;
         DispatcherTimer animationTimer;
+        DispatcherTimer repeaterTimer;
         double rotationAngle;
         const int size = 20;
         GameLogic gameLogic;
@@ -57,6 +58,9 @@ namespace WheatAndTurboReactors
             animationTimer.Tick += new EventHandler(rotateRectangle);
             animationTimer.Interval = new TimeSpan(0, 0, 0, 0, 30);
             animationTimer.Start();
+
+            repeaterTimer = new DispatcherTimer();
+            repeaterTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
 
         }
 
@@ -440,6 +444,123 @@ namespace WheatAndTurboReactors
 
             gridTimer.Interval = new TimeSpan(0, 0, new Random().Next(6,20));
         }
+
+
+        private void btnBuyW(object sender, EventArgs e)
+        {
+            btnBuyWheat(null, null);
+        }
+
+        private void buyWheatBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Tick += new EventHandler(btnBuyW);
+            repeaterTimer.Start();
+        }
+
+        private void buyWheatBtn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Stop();
+        }
+
+        private void buyDiamondBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Tick += new EventHandler(btnBuyDiamond);
+            repeaterTimer.Start();
+        }
+
+        private void btnBuyDiamond(object sender, EventArgs e)
+        {
+            btnBuyDiamond(null, null);
+        }
+
+        private void buyDiamondBtn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Stop();
+        }
+
+        private void buyTurboReactorBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Tick += new EventHandler(btnBuyTurboReactors);
+            repeaterTimer.Start();
+        }
+
+        private void btnBuyTurboReactors(object sender, EventArgs e)
+        {
+            btnBuyTurboReactors(null, null);
+        }
+
+        private void buyTurboReactorBtn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Stop();
+        }
+
+        private void sellDiamondBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Tick += new EventHandler(btnSellDiamond);
+            repeaterTimer.Start();
+        }
+
+        private void btnSellDiamond(object sender, EventArgs e)
+        {
+            btnSellDiamond(null, null);
+        }
+
+        private void sellDiamondBtn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Stop();
+        }
+
+        private void sellWheatBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Tick += new EventHandler(btnSellWheat);
+            repeaterTimer.Start();
+        }
+
+        private void btnSellWheat(object sender, EventArgs e)
+        {
+            btnSellWheat(null, null);
+        }
+
+        private void sellWheatBtn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Stop();
+        }
+
+        private void sellTurboReactorsBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Tick += new EventHandler(btnSellTurboReactors);
+            repeaterTimer.Start();
+        }
+
+        private void btnSellTurboReactors(object sender, EventArgs e)
+        {
+            btnSellTurboReactors(null, null);
+        }
+
+        private void sellTurboReactorsBtn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            repeaterTimer.Stop();
+        }
+
+        private void Window_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("up");
+            repeaterTimer.Stop();
+        }
+
+        private void Window_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("up");
+            repeaterTimer.Stop();
+        }
+
+        private void Window_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("up");
+            repeaterTimer.Stop();
+        }
+
+
 
     }
 }
