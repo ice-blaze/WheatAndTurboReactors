@@ -20,6 +20,7 @@ namespace WheatAndTurboReactors
         private MotherPlanet motherPlanet;
         private GameLogic gameLogic;
         public delegate void ShowShip();
+        public PlanetDescriptionsManager descriptions;
 
         public void initMinimap(Canvas canvas, MainWindow _parent)
         {
@@ -38,7 +39,7 @@ namespace WheatAndTurboReactors
             ForeignPlanet uy = new ForeignPlanet("crashed", 40, 100, 6, 200, 300);
             ForeignPlanet laneti = new ForeignPlanet("or not", 100, 350, 12, 150, 200);
             ForeignPlanet faret = new ForeignPlanet("speedimus", 10, 120, 9, 200, 500);
-            ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 3, 20, 200);
+            ForeignPlanet guydqw = new ForeignPlanet("broken", 40, 360, 3, 20, 900);
 
             motherPlanet = new MotherPlanet("mother planet", 10, 10, 10, 0, 0);
             Ship.MotherPlanet = motherPlanet;
@@ -58,6 +59,8 @@ namespace WheatAndTurboReactors
             planetList.Add(laneti);
             planetList.Add(faret);
             planetList.Add(guydqw);
+
+            descriptions = new PlanetDescriptionsManager(planetList);
 
             motherPlanet.addPlanetToLinks(thisGuy);
             motherPlanet.addPlanetToLinks(lonelyPlanet);
