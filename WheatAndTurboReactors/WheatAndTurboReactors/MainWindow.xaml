@@ -80,7 +80,7 @@
                         <Label Name="shipShowName" Style="{StaticResource SwagLabel}"/>
                         <Label Name="shipShowCargo" Style="{StaticResource SwagLabel}"/>
                         <Label Name="shipShowPlanet" Style="{StaticResource SwagLabel}"/>
-                        <Label Name="shipShowTripStatus" Style="{StaticResource SwagLabel}"/>
+                        <Label Name="shipShowTripStatus" Style="{StaticResource SwagLabel}" Content="{Binding test}"/>
                     </StackPanel>
                 </DockPanel>
 

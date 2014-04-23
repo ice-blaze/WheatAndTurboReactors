@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace WheatAndTurboReactors
 {
@@ -28,6 +29,9 @@ namespace WheatAndTurboReactors
         private string name;
         private Planet planetShip;
         private bool isTravlin;
+        private DispatcherTimer travlinCountDown;
+        private double arrivalTime;
+        private double arrivalTimeInitiale;
         static private MotherPlanet motherPlanet;
         static private Ship lastShipSelected = null;
 
@@ -40,6 +44,11 @@ namespace WheatAndTurboReactors
             wheat = 0;
             turboReactors = 0;
             diamond = 0;
+
+            travlinCountDown = new System.Windows.Threading.DispatcherTimer();
+            travlinCountDown.Tick += new EventHandler(countdown_tick);
+            arrivalTime = 0;
+            arrivalTimeInitiale = 0;
 
             // adding the correct countner size in function with the level
             switch (level)
@@ -94,17 +103,38 @@ namespace WheatAndTurboReactors
             }
         }
 
-        public void startTrip(Minimap map)
+        public void startTrip(Planet startPlanet, Planet arrivalPlanet)
         {
             isTravlin = true;
             System.Threading.ThreadPool.QueueUserWorkItem(delegate(object obj)
             {
-                // TODO define the time
-                Thread.Sleep(3000);
+                double distance = ((startPlanet.x - arrivalPlanet.x) * (startPlanet.x - arrivalPlanet.x) + (startPlanet.y - arrivalPlanet.x) * (startPlanet.y - arrivalPlanet.x));
+                arrivalTimeInitiale = distance * 10; 
+                travlinCountDown.Interval = new TimeSpan(1000);
+                arrivalTime = arrivalTimeInitiale;
+                travlinCountDown.Start();
+                //Thread.Sleep((int)arrivalTimeInitiale);
+                
+                //isTravlin = false;
+                //planetShip.setDiscovered(true);
+            });
+        }
+
+        private void countdown_tick(object sender, EventArgs e)
+        {
+            arrivalTime -= 1000;
+            if (arrivalTime < 0)
+            {
+                travlinCountDown.Stop();
+                arrivalTime = 0;
                 isTravlin = false;
                 planetShip.setDiscovered(true);
-            });
-            //start timer
+            }
+        }
+
+        public double ArrivalTime
+        {
+            get { return arrivalTime; }
         }
 
         public int ContainerMax
@@ -218,8 +248,5 @@ namespace WheatAndTurboReactors
             get { return motherPlanet; }
             set { motherPlanet = value; }
         }
-
-       
-
     }
 }

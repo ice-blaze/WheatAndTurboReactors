@@ -19,6 +19,7 @@ namespace WheatAndTurboReactors
         private MainWindow parent;
         private MotherPlanet motherPlanet;
         private GameLogic gameLogic;
+        public delegate void ShowShip();
 
         public void initMinimap(Canvas canvas, MainWindow _parent)
         {
@@ -147,8 +148,9 @@ namespace WheatAndTurboReactors
                         }
 
                         //foreach(Planet planet in Ship.LastShipSelected.PlanetShip)
+                        Planet oldPlanet = Ship.LastShipSelected.PlanetShip;
                         Ship.LastShipSelected.PlanetShip = planet;
-                        Ship.LastShipSelected.startTrip(this);
+                        Ship.LastShipSelected.startTrip(oldPlanet, planet);
                         mainWin.shipShow();
                     }
                 }
@@ -170,7 +172,6 @@ namespace WheatAndTurboReactors
             {
                 planet.planetImage.StrokeThickness = 0;
             }
-
 
             _planet.planetImage.StrokeThickness = 4;
             _planet.planetImage.Stroke = new SolidColorBrush(Colors.LightBlue);
