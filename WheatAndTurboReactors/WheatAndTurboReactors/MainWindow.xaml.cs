@@ -31,6 +31,9 @@ namespace WheatAndTurboReactors
         Canvas canvas;
         Rectangle rectangle;
         DispatcherTimer gridTimer;
+        DispatcherTimer animationTimer;
+        double rotationAngle;
+        const int size = 20;
 
         public MainWindow()
         {
@@ -40,6 +43,46 @@ namespace WheatAndTurboReactors
             gridTimer.Tick += new EventHandler(drawMinimapGrid);
             gridTimer.Interval = new TimeSpan(0, 0, 0);
             gridTimer.Start();
+
+
+            rectangle = new Rectangle();
+
+            Brush brush = new SolidColorBrush(Colors.LawnGreen);
+            rectangle.Fill = brush;
+            rectangle.Width = size;
+            rectangle.Height = size;
+            rotationAngle = 0;
+            animationTimer = new DispatcherTimer();
+            animationTimer.Tick += new EventHandler(rotateRectangle);
+            animationTimer.Interval = new TimeSpan(0, 0, 0, 0, 30);
+            animationTimer.Start();
+
+        }
+
+        private void rotateRectangle(object sender, EventArgs e)
+        {
+            rotationAngle += 3;
+            drawShipLocation();
+        }
+
+        private void drawShipLocation()
+        {
+
+            Ship ship = Ship.LastShipSelected;
+            if(ship != null)
+            {
+
+                canvas.Children.Remove(rectangle);
+                Canvas.SetLeft(rectangle, ship.PlanetShip.x);
+                Canvas.SetTop(rectangle, ship.PlanetShip.y);
+
+                RotateTransform rotateTransform1 = new RotateTransform(rotationAngle, size/2, size/2);
+                rectangle.RenderTransform = rotateTransform1;
+
+                canvas.Children.Add(rectangle);
+            }
+            
+
         }
 
         private void MiniMap_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -73,7 +116,6 @@ namespace WheatAndTurboReactors
             GameLogic gameLogic = new GameLogic(this, minimap);
             minimap.setGameLogic(gameLogic);
 
-            rectangle = new Rectangle();
         }
 
         public void shipShow(object sender, RoutedEventArgs e)
@@ -107,21 +149,7 @@ namespace WheatAndTurboReactors
 
             lblShipTripStatus.Content = (ship.IsTravlin) ? "Yes" : "No";
 
-
-
-            
-
-            Brush brush = new SolidColorBrush(Colors.Red);
-            rectangle.Fill = brush;
-            rectangle.Width = 20;
-            rectangle.Height = 20;
-
-            Canvas.SetLeft(rectangle, ship.PlanetShip.x);
-            Canvas.SetTop(rectangle, ship.PlanetShip.y);
-
-            canvas.Children.Remove(rectangle);
-            canvas.Children.Add(rectangle);
-
+            drawShipLocation();
         }
 
         private void Buy_Ships_Click(object sender, RoutedEventArgs e)
