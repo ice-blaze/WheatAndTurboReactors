@@ -4,16 +4,17 @@
         Title="MainWindow" Height="700" Width="1024"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         >
+    
 
     <Grid>
         <Canvas x:Name="playerRessources" Width="502" Height="146" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="506,516,0,0" MouseDown="Resources_Canvas_MouseDown">
             <Canvas.Background>
                 <ImageBrush ImageSource="Backgrounds/mother_planet_panel.png"/>
             </Canvas.Background>
-            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="35" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="Consolas" FontWeight="Bold"/>
-            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="181" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="Consolas" FontWeight="Bold"/>
-            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="181" Canvas.Top="78" Foreground="#FFFF4600" FontWeight="Bold" FontFamily="Consolas" FontSize="20"/>
-            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="35" Canvas.Top="78" Foreground="#FFFF4600" FontSize="20" FontFamily="Consolas" FontWeight="Bold"/>
+            <Label x:Name="moneyLabel" Content="Label" Canvas.Left="35" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
+            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="181" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
+            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="181" Canvas.Top="78" Foreground="#FFFF4600" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="20"/>
+            <Label x:Name="wheatLabel" Content="Label" Canvas.Left="35" Canvas.Top="78" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
         </Canvas>
 
         <Canvas HorizontalAlignment="Left" Width="506" Height="146" Margin="0,516,0,0"  VerticalAlignment="Top" Background="#FFBB9E9E" MouseDown="Ship_Canvas_MouseDown">
@@ -45,9 +46,9 @@
                     </WrapPanel>
                 </ScrollViewer>
 
-                <Button Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,10,10,10" Content="Buy some &#x0a;cool ships" Click="Buy_Ships_Click" HorizontalAlignment="Right" Width="80"  />
+                <Button Grid.Row="0" MinWidth="80" Margin="0,10,10,10" Content="Buy some &#x0a;cool ships" Click="Buy_Ships_Click" HorizontalAlignment="Right" Width="97" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource SwagButton}"/>
 
-                <Button x:Name="improve_wheat_production" Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,30,-473,32" Content="improve wheat production" Click="boughtProduction" HorizontalAlignment="Right" Width="87"  />
+                <Button x:Name="improve_wheat_production" Grid.Column="1" Grid.Row="0" MinWidth="80" Margin="0,30,-473,32" Content="improve wheat production" Click="boughtProduction" HorizontalAlignment="Right" Width="87" Style="{StaticResource SwagButton}" />
 
             </Grid>
         </Canvas>
@@ -56,10 +57,10 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="Backgrounds/planet_panel.png"/>
             </Canvas.Background>
-            <Label x:Name="titleLabel" Content="Label" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
-            <Label x:Name="foreignWheatLabel" Content="Label" Canvas.Left="23" Canvas.Top="47" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
-            <Label x:Name="foreignDiamondLabel" Content="Label" Canvas.Left="23" Canvas.Top="78" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
-            <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109" Foreground="#FFFF3A00" FontWeight="Bold" FontSize="20" FontFamily="Consolas"/>
+            <Label x:Name="titleLabel" Content="No planet selected" Canvas.Left="10" Canvas.Top="10" Height="32" Width="254" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont Outline" FontWeight="Bold" Style="{StaticResource SwagLabel}"/>
+            <Label x:Name="foreignWheatLabel" Content="Label" Canvas.Left="23" Canvas.Top="47" FontSize="20" Style="{StaticResource SwagLabel}"/>
+            <Label x:Name="foreignDiamondLabel" Content="Label" Canvas.Left="23" Canvas.Top="78" FontSize="20" Style="{StaticResource SwagLabel}"/>
+            <Label x:Name="foreignTurboReactorLabel" Content="Label" Canvas.Left="23" Canvas.Top="109" FontSize="20" Style="{StaticResource SwagLabel}"/>
         </Canvas>
         <Canvas Margin="734,285,0,0" Height="231" Width="274" VerticalAlignment="Top" HorizontalAlignment="Left"  MouseDown="Info_Canvas_MouseDown">
             <Canvas.Background>
@@ -69,20 +70,19 @@
             <StackPanel DockPanel.Dock="Bottom"  VerticalAlignment="Bottom" >
                 <DockPanel Width="274">
                     <StackPanel DockPanel.Dock="Left" VerticalAlignment="Top">
-                        <Label Content="Ship name :" />
-                        <Label Content="Cargo :" />
-                        <Label Content="Planet :" />
-                        <Label Content="Is tripin :" />
+                        <Label Content="Ship name :" Style="{StaticResource SwagLabel}" />
+                        <Label Content="Cargo :" Style="{StaticResource SwagLabel}"/>
+                        <Label Content="Planet :"  Style="{StaticResource SwagLabel}"/>
+                        <Label Content="Is tripin :"  Style="{StaticResource SwagLabel}"/>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Right" VerticalAlignment="Top" >
-                        <Label Name="shipShowName" />
-                        <Label Name="shipShowCargo" />
-                        <Label Name="shipShowPlanet" />
-                        <Label Name="shipShowTripStatus" />
+                        <Label Name="shipShowName" Style="{StaticResource SwagLabel}"/>
+                        <Label Name="shipShowCargo" Style="{StaticResource SwagLabel}"/>
+                        <Label Name="shipShowPlanet" Style="{StaticResource SwagLabel}"/>
+                        <Label Name="shipShowTripStatus" Style="{StaticResource SwagLabel}"/>
                     </StackPanel>
                 </DockPanel>
-                <Button Content="Start trip" Click="Start_Trip_Click">
-                </Button>
+                <Button Name="SwagButton" Content="Start trip" Click="Start_Trip_Click" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" Style="{StaticResource SwagButton}"/>
 
                 <Grid Width="Auto" Height="Auto">
                     <Grid.RowDefinitions>
@@ -96,14 +96,14 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="Buy :"/>
-                    <Button Grid.Column="0" Grid.Row="1" Content="Diamonds" Click="btnBuyDiamond"/>
-                    <Button Grid.Column="1" Grid.Row="1" Content="Wheat" Click="btnBuyWheat"/>
-                    <Button Grid.Column="2" Grid.Row="1" Content="Turbo reactors" Click="btnBuyTurboReactors"/>
-                    <Label Grid.Column="0" Grid.Row="2" Content="Sell :"/>
-                    <Button Grid.Column="0" Grid.Row="3" Content="Diamonds" Click="btnSellDiamond"/>
-                    <Button Grid.Column="1" Grid.Row="3" Content="Wheat" Click="btnSellWheat"/>
-                    <Button Grid.Column="2" Grid.Row="3" Content="Turbo reactors" Click="btnSellTurboReactors"/>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Buy :" Style="{StaticResource SwagLabel}"/>
+                    <Button Grid.Column="0" Grid.Row="1" Content="Diamonds" Click="btnBuyDiamond" Style="{StaticResource SwagButton}"/>
+                    <Button Grid.Column="1" Grid.Row="1" Content="Wheat" Click="btnBuyWheat" Style="{StaticResource SwagButton}"/>
+                    <Button Grid.Column="2" Grid.Row="1" Content="Turbo reactors" Click="btnBuyTurboReactors" Style="{StaticResource SwagButton}"/>
+                    <Label Grid.Column="0" Grid.Row="2" Content="Sell :" Style="{StaticResource SwagLabel}" />
+                    <Button Grid.Column="0" Grid.Row="3" Content="Diamonds" Click="btnSellDiamond" Style="{StaticResource SwagButton}"/>
+                    <Button Grid.Column="1" Grid.Row="3" Content="Wheat" Click="btnSellWheat" Style="{StaticResource SwagButton}"/>
+                    <Button Grid.Column="2" Grid.Row="3" Content="Turbo reactors" Click="btnSellTurboReactors"  Style="{StaticResource SwagButton}"/>
                 </Grid>
 
             </StackPanel>
@@ -120,12 +120,15 @@
         </Canvas>
         <Canvas Name="minimapGrid" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" />
 
-        <Canvas Name="BuyShipLayout" Background="Black" Opacity="0.8" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="-1200,-252,0,0">
+        <Canvas Name="BuyShipLayout" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="-1200,-252,0,0">
+            <Canvas.Background>
+                <SolidColorBrush Color="Black" Opacity="0.5"/>
+            </Canvas.Background>
             <Canvas Background="White" Height="432" Canvas.Top="111" Width="1008">
-                <Button Content="Buy Small" Width="153" Canvas.Left="69" Canvas.Top="201" Height="116" Click="Buy_Ships_Small_Click"/>
-                <Button Content="Buy Medium" Width="153" Canvas.Left="429" Canvas.Top="201" Height="116" Click="Buy_Ships_Medium_Click"/>
-                <Button Content="Buy Big" Width="153" Canvas.Left="795" Canvas.Top="201" Height="116" Click="Buy_Ships_Big_Click"/>
-                <Button Content="Cancel" Canvas.Left="873" Canvas.Top="362" Width="75" Click="Buy_Ships_Cancel_Click" />
+                <Button Content="Buy Small" Width="153" Canvas.Left="69" Canvas.Top="201" Height="116" Click="Buy_Ships_Small_Click"  Style="{StaticResource SwagButton}"/>
+                <Button Content="Buy Medium" Width="153" Canvas.Left="429" Canvas.Top="201" Height="116" Click="Buy_Ships_Medium_Click" Style="{StaticResource SwagButton}"/>
+                <Button Content="Buy Big" Width="153" Canvas.Left="795" Canvas.Top="201" Height="116" Click="Buy_Ships_Big_Click" Style="{StaticResource SwagButton}"/>
+                <Button Content="Cancel" Canvas.Left="873" Canvas.Top="362" Width="75" Click="Buy_Ships_Cancel_Click" Style="{StaticResource SwagButton}"/>
                 <TextBox Name="BuyShipTextBox" Height="35" Canvas.Left="336" TextWrapping="Wrap" Canvas.Top="110" Width="342" FontSize="20"/>
             </Canvas>
         </Canvas>
