@@ -152,7 +152,13 @@ namespace WheatAndTurboReactors
             lblShipCargo.Content = ship.Container.ToString() + "/" + ship.ContainerMax.ToString();
             lblShipPlanet.Content = ship.PlanetShip.Name;
 
-            lblShipTripStatus.Content = (ship.IsTravlin) ? "Yes" : "No";
+            //lblShipTripStatus.Content = (ship.IsTravlin) ? "Yes" : "No";
+            String[] time = TimeSpan.FromMilliseconds(ship.ArrivalTime).ToString().Split(':');
+            lblShipTripStatus.Content = time[0]+" Min "+time[1]+" Sec";
+            if (ship.ArrivalTime==0)
+            {
+                lblShipTripStatus.Content = "Ship is docked";
+            }
 
             drawShipLocation();
         }

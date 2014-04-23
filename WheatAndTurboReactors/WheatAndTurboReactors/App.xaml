@@ -37,5 +37,6 @@
             <Setter Property="Foreground" Value="#FFFF4600"/>
             <Setter Property="FontFamily" Value="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
         </Style>
+        
     </Application.Resources>
 </Application>
