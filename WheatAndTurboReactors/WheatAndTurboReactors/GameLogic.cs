@@ -41,7 +41,6 @@ namespace WheatAndTurboReactors
             {
                 planet.normalizePrices();
             }
-            
         }
 
         public void updateLabels()
@@ -64,8 +63,6 @@ namespace WheatAndTurboReactors
             foreignWheatLabel.Content = "wheat: " + (int)currentlyShownPlanet.Wheat;
             foreignDiamondLabel.Content = "diamond: " + currentlyShownPlanet.Diamond;
             foreignTurboReactorLabel.Content = "turbo reactors: " + currentlyShownPlanet.TurboReactors;
-
-            
 
             Canvas canvas = (Canvas)parent.FindName("minimapCanvas");
             minimap.drawDiscoveredPlanets(canvas);

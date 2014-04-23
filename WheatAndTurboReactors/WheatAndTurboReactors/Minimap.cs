@@ -160,7 +160,9 @@ namespace WheatAndTurboReactors
         private void updateInformation(Planet planet)
         {
             Label label = (Label)parent.FindName("titleLabel");
+            TextBlock tbxBlock = parent.FindName("foreignDescriptionLabel") as TextBlock;
             label.Content = planet.Name;
+            tbxBlock.Text = planet.Description;
             gameLogic.setShownPlanet(planet);
             gameLogic.updateLabels();
             
