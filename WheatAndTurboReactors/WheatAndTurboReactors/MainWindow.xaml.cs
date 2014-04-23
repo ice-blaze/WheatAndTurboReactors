@@ -34,6 +34,7 @@ namespace WheatAndTurboReactors
         DispatcherTimer animationTimer;
         double rotationAngle;
         const int size = 20;
+        GameLogic gameLogic;
 
         public MainWindow()
         {
@@ -113,7 +114,7 @@ namespace WheatAndTurboReactors
             this.canvas = sender as Canvas;
             Canvas canvas = sender as Canvas;
             minimap.initMinimap(canvas, this);
-            GameLogic gameLogic = new GameLogic(this, minimap);
+            gameLogic = new GameLogic(this, minimap);
             minimap.setGameLogic(gameLogic);
 
         }
@@ -296,6 +297,8 @@ namespace WheatAndTurboReactors
         private void boughtProduction(object sender, RoutedEventArgs e)
         {
             minimap.getMotherPlanet().addWheatGain();
+            gameLogic.updateLabels();
+            
         }
 
 
