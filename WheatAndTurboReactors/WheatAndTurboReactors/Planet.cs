@@ -22,6 +22,7 @@ namespace WheatAndTurboReactors
         protected List<Planet> linkedPlanets;
         int size = 20;
         protected bool discovered;
+        private String description;
 
         public Planet(string _name, int _x, int _y, int _wheatPrice, int _diamondPrice, int _turboReactorsPrice)
         {
@@ -41,6 +42,7 @@ namespace WheatAndTurboReactors
             brush = new SolidColorBrush(Colors.White);
             planetImage.Fill = brush;
 
+            description = "No much stories about this planet.";
         }
 
         public void drawLinks(Canvas canvas)
@@ -144,14 +146,16 @@ namespace WheatAndTurboReactors
             get { return turboReactors; }            
         }
 
+        public String Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
         public virtual void updateView()
         {
 
         }
-
-        
-
-        
     }
 }
     

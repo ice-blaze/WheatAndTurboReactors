@@ -37,6 +37,11 @@
             <Setter Property="Foreground" Value="#FFFF4600"/>
             <Setter Property="FontFamily" Value="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
         </Style>
+        <Style TargetType="TextBlock" x:Key="SwagTextBlock" >
+            <Setter Property="Foreground" Value="#FFFF4600"/>
+            <Setter Property="FontFamily" Value="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
         
     </Application.Resources>
 </Application>
