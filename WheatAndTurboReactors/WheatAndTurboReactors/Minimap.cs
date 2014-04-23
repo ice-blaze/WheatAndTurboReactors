@@ -58,19 +58,42 @@ namespace WheatAndTurboReactors
             planetList.Add(faret);
             planetList.Add(guydqw);
 
-
             motherPlanet.addPlanetToLinks(thisGuy);
             motherPlanet.addPlanetToLinks(lonelyPlanet);
+
             thisGuy.addPlanetToLinks(guy);
             thisGuy.addPlanetToLinks(loPlanet);
             thisGuy.addPlanetToLinks(uy);
+            thisGuy.addPlanetToLinks(motherPlanet);
+
             lonelyPlanet.addPlanetToLinks(farAwayPlanet);
-            farAwayPlanet.addPlanetToLinks(lanet);
             lonelyPlanet.addPlanetToLinks(farPlanet);
+            lonelyPlanet.addPlanetToLinks(motherPlanet);
+
+            farAwayPlanet.addPlanetToLinks(lanet);
+            farAwayPlanet.addPlanetToLinks(lonelyPlanet);
+
+            farPlanet.addPlanetToLinks(lonelyPlanet);
+
+            lanet.addPlanetToLinks(farAwayPlanet);
+
             guy.addPlanetToLinks(guydqw);
-            uy.addPlanetToLinks(faret);
             guy.addPlanetToLinks(laneti);
+            guy.addPlanetToLinks(thisGuy);
+
+            guydqw.addPlanetToLinks(guy);
+
+            laneti.addPlanetToLinks(guy);
+
+            uy.addPlanetToLinks(faret);
+            uy.addPlanetToLinks(thisGuy);
+
+            faret.addPlanetToLinks(uy);
+
             loPlanet.addPlanetToLinks(et);
+            loPlanet.addPlanetToLinks(thisGuy);
+
+            et.addPlanetToLinks(loPlanet);
 
             motherPlanet.showDiscovered(canvas);
 
@@ -110,14 +133,24 @@ namespace WheatAndTurboReactors
                     (canvas.RenderTransform as ScaleTransform).ScaleY = 1;
 
                     MainWindow mainWin = ((MainWindow)Application.Current.MainWindow);
+
                     // if we are in the selection mode (minimap over all the window) then set a planet and 
                     if (Ship.LastShipSelected != null && mainWin.ShipTripSelectionMod)
                     {
+                        mainWin.stopShipTripSelectionMod();
+
+                        // check if the planet is a neibourgh
+                        if (!Ship.LastShipSelected.PlanetShip.LinkedPlanets.Contains(planet))
+                        {
+                            MessageBox.Show("Planet isn't linked..");
+                            return;
+                        }
+
+                        //foreach(Planet planet in Ship.LastShipSelected.PlanetShip)
                         Ship.LastShipSelected.PlanetShip = planet;
                         Ship.LastShipSelected.startTrip(this);
                         mainWin.shipShow();
                     }
-                    mainWin.stopShipTripSelectionMod();
                 }
             }
         }
@@ -152,7 +185,7 @@ namespace WheatAndTurboReactors
                 {
                     canvas.Children.Add(planet.planetImage);
                     planet.drawLinks(canvas);
-                    foreach(Planet extremePlanet in planet.getLinkedPlanets())
+                    foreach(Planet extremePlanet in planet.LinkedPlanets)
                     {
                         if(!extremePlanet.isDiscovered())
                         {

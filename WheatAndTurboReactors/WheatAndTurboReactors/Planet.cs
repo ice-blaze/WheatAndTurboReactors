@@ -115,9 +115,10 @@ namespace WheatAndTurboReactors
             linkedPlanets.Add(planet);
         }
 
-        public List<Planet> getLinkedPlanets()
+
+        public List<Planet> LinkedPlanets
         {
-            return linkedPlanets;
+            get { return linkedPlanets; }
         }
 
         public string Name
