@@ -9,9 +9,11 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WheatAndTurboReactors
 {
@@ -28,11 +30,16 @@ namespace WheatAndTurboReactors
         bool shipTripSelectionMod = false;
         Canvas canvas;
         Rectangle rectangle;
+        DispatcherTimer gridTimer;
 
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            gridTimer = new DispatcherTimer();
+            gridTimer.Tick += new EventHandler(drawMinimapGrid);
+            gridTimer.Interval = new TimeSpan(0, 0, 0);
+            gridTimer.Start();
         }
 
         private void MiniMap_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -198,6 +205,11 @@ namespace WheatAndTurboReactors
         {
             if (Ship.LastShipSelected == null) { MessageBox.Show("No ship selected"); return; }
             if (Ship.LastShipSelected.IsTravlin) { MessageBox.Show("The ship is travaling right now"); return; }
+
+            gridTimer.Stop();
+            Canvas grid = (Canvas)this.FindName("minimapGrid");
+            grid.Children.Clear();
+
             Canvas minimap = (Canvas)this.FindName("minimapCanvas");
             double mainWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
             double mainHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
@@ -211,6 +223,8 @@ namespace WheatAndTurboReactors
         public void stopShipTripSelectionMod()
         {
             shipTripSelectionMod = false;
+            gridTimer.Start();
+            drawMinimapGrid(null, null);
         }
 
         public void startShipTripSelectionMod()
@@ -327,5 +341,56 @@ namespace WheatAndTurboReactors
         {
             MessageBox.Show("There is no ship selected.");
         }
+
+        private void drawMinimapGrid(object sender, EventArgs e)
+        {
+            Canvas canvas = (Canvas)FindName("minimapGrid");
+            canvas.Children.Clear();
+            // draw a grid
+            int mainWidth = (int)canvas.Width;
+            int mainHeight = (int)canvas.Height;
+
+            DoubleAnimation myDoubleAnimation = new DoubleAnimation();
+            myDoubleAnimation.From = 0.0;
+            myDoubleAnimation.To = 1.0;
+            myDoubleAnimation.AutoReverse = true;
+
+            //myDoubleAnimation.RepeatBehavior = RepeatBehavior.Forever;
+
+            for (double i = 0, j = 0; i < mainWidth; i += mainWidth / 10, j += 0.3)
+            {
+                Line greenLine = new Line();
+                greenLine.Stroke = System.Windows.Media.Brushes.Green;
+                greenLine.Y1 = 0;
+                greenLine.Y2 = mainHeight;
+                greenLine.X1 = greenLine.X2 = i;
+                greenLine.StrokeThickness = 2;
+                greenLine.Opacity = 0;
+
+                myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(1.5));
+                myDoubleAnimation.BeginTime = TimeSpan.FromSeconds(j);
+                greenLine.BeginAnimation(Line.OpacityProperty, myDoubleAnimation);
+                canvas.Children.Add(greenLine);
+            }
+
+            for (double i = 0, j = 0; i < mainHeight; i += mainHeight / 8, j += 0.3)
+            {
+                Line greenLine = new Line();
+                greenLine.Stroke = System.Windows.Media.Brushes.Green;
+                greenLine.X1 = 0;
+                greenLine.X2 = mainWidth;
+                greenLine.Y1 = greenLine.Y2 = i;
+                greenLine.StrokeThickness = 2;
+                greenLine.Opacity = 0;
+
+                myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(1.5));
+                myDoubleAnimation.BeginTime = TimeSpan.FromSeconds(j);
+                greenLine.BeginAnimation(Line.OpacityProperty, myDoubleAnimation);
+                canvas.Children.Add(greenLine);
+            }
+
+            gridTimer.Interval = new TimeSpan(0, 0, new Random().Next(6,20));
+        }
+
     }
 }
