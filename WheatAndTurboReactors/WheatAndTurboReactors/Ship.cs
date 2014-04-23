@@ -36,6 +36,13 @@ namespace WheatAndTurboReactors
         static private MotherPlanet motherPlanet;
         static private Ship lastShipSelected = null;
 
+        public const int smallReactorPrice = 1;
+        public const int smallMoneyPrice = 200;
+        public const int mediumReactorPrice = 10;
+        public const int mediumMoneyPrice = 2000;
+        public const int bigReactorPrice = 20;
+        public const int bigMoneyPrice = 5000;
+
         // bitmap (imageloader?)
         public Ship(int _level, string _name = "NaN name")
         {
@@ -221,6 +228,33 @@ namespace WheatAndTurboReactors
             turboReactors--;
             container--;
             return true;
+        }
+
+        public static bool checkPrice(String size)
+        {
+            if(size.Equals("Small"))
+            {
+                Console.WriteLine(MotherPlanet.Money);
+                if(MotherPlanet.Money >= smallMoneyPrice && motherPlanet.TurboReactors >= smallReactorPrice)
+                {
+                    return true;
+                }
+            }
+            else if(size.Equals("Medium"))
+            {
+                if (MotherPlanet.Money >= mediumMoneyPrice && motherPlanet.TurboReactors >= mediumReactorPrice)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (MotherPlanet.Money >= bigMoneyPrice && motherPlanet.TurboReactors >= bigReactorPrice)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private static int convertLevel(string level)

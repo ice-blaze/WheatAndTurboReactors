@@ -62,6 +62,9 @@ namespace WheatAndTurboReactors
             repeaterTimer = new DispatcherTimer();
             repeaterTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
 
+
+            
+
         }
 
         private void rotateRectangle(object sender, EventArgs e)
@@ -107,6 +110,8 @@ namespace WheatAndTurboReactors
             Canvas canvas = sender as Canvas;
             Console.WriteLine("minimap");
             minimap.checkIfPlanetIsClicked(e, canvas);
+
+            
         }
 
         private void Info_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -132,6 +137,22 @@ namespace WheatAndTurboReactors
             minimap.initMinimap(canvas, this);
             gameLogic = new GameLogic(this, minimap);
             minimap.setGameLogic(gameLogic);
+
+
+            Ship ship = new Ship("small", "Trotter");
+            ships.Add(ship);
+
+            Button newBtn = new Button();
+            newBtn.Content = "Trotter";
+            newBtn.Click += shipShow;
+            Style style = Application.Current.FindResource("SwagButton") as Style;
+            newBtn.Style = style;
+            newBtn.Margin = new Thickness(5);
+            newBtn.Padding = new Thickness(7);
+            shipButtons.Add(newBtn);
+
+            WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
+            wrap.Children.Add(newBtn);
 
         }
 
@@ -226,7 +247,7 @@ namespace WheatAndTurboReactors
             String nameInput = ((TextBox)this.FindName("BuyShipTextBox")).Text;
             if(nameInput.Contains(" "))
             {
-                MessageBox.Show("Choose a better name... (no sapces)", "Naming error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Choose a better name... (no spaces)", "Naming error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 ((TextBox)this.FindName("BuyShipTextBox")).Focus();
                 return false;
             }
@@ -240,22 +261,29 @@ namespace WheatAndTurboReactors
             }
             nameInput =  nameInput + " Mark " + ToRoman(count);
 
-            Ship ship = new Ship(size, nameInput);
-            ships.Add(ship);
+            if(Ship.checkPrice(size))
+            {
 
-            Button newBtn = new Button();
-            newBtn.Content = nameInput;
-            newBtn.Click += shipShow;
-            Style style = Application.Current.FindResource("SwagButton") as Style;
-            newBtn.Style = style;
-            newBtn.Margin = new Thickness(5);
-            newBtn.Padding = new Thickness(7);
-            shipButtons.Add(newBtn);
+                Ship ship = new Ship(size, nameInput);
+                ships.Add(ship);
+
+                Button newBtn = new Button();
+                newBtn.Content = nameInput;
+                newBtn.Click += shipShow;
+                Style style = Application.Current.FindResource("SwagButton") as Style;
+                newBtn.Style = style;
+                newBtn.Margin = new Thickness(5);
+                newBtn.Padding = new Thickness(7);
+                shipButtons.Add(newBtn);
+
+                WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
+                wrap.Children.Add(newBtn);
+
+                return true;
+            }
+
+            return false;
             
-            WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
-            wrap.Children.Add(newBtn);
-
-            return true;
         }
 
         private void Start_Trip_Click(object sender, RoutedEventArgs e)
@@ -324,6 +352,9 @@ namespace WheatAndTurboReactors
 
         private void boughtProduction(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            int cost = (int)minimap.getMotherPlanet().WheatGain * 10 + 1;
+            button.Content = "improve wheat production for " + cost + "$";
             minimap.getMotherPlanet().addWheatGain();
             gameLogic.updateLabels();
             
