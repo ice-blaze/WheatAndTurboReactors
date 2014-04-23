@@ -18,16 +18,21 @@ namespace WheatAndTurboReactors
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
         List<Button> shipButtons = new List<Button>();
         List<Ship> ships = new List<Ship>();
         Minimap minimap;
         bool shipTripSelectionMod = false;
+        Canvas canvas;
+        Rectangle rectangle;
 
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void MiniMap_Canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -55,10 +60,13 @@ namespace WheatAndTurboReactors
         private void Minimap_Canvas_Loaded(object sender, RoutedEventArgs e)
         {
             minimap = new Minimap();
+            this.canvas = sender as Canvas;
             Canvas canvas = sender as Canvas;
             minimap.initMinimap(canvas, this);
             GameLogic gameLogic = new GameLogic(this, minimap);
             minimap.setGameLogic(gameLogic);
+
+            rectangle = new Rectangle();
         }
 
         public void shipShow(object sender, RoutedEventArgs e)
@@ -91,6 +99,22 @@ namespace WheatAndTurboReactors
             lblShipPlanet.Content = ship.PlanetShip.Name;
 
             lblShipTripStatus.Content = (ship.IsTravlin) ? "Yes" : "No";
+
+
+
+            
+
+            Brush brush = new SolidColorBrush(Colors.Red);
+            rectangle.Fill = brush;
+            rectangle.Width = 20;
+            rectangle.Height = 20;
+
+            Canvas.SetLeft(rectangle, ship.PlanetShip.x);
+            Canvas.SetTop(rectangle, ship.PlanetShip.y);
+
+            canvas.Children.Remove(rectangle);
+            canvas.Children.Add(rectangle);
+
         }
 
         private void Buy_Ships_Click(object sender, RoutedEventArgs e)
