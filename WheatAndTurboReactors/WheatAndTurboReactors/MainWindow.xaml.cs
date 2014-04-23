@@ -538,19 +538,16 @@ namespace WheatAndTurboReactors
 
         private void Window_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine("up");
             repeaterTimer.Stop();
         }
 
         private void Window_LostFocus(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("up");
             repeaterTimer.Stop();
         }
 
         private void Window_LostMouseCapture(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("up");
             repeaterTimer.Stop();
         }
 
