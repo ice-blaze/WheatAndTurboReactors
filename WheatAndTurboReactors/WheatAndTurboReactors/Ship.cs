@@ -32,6 +32,7 @@ namespace WheatAndTurboReactors
         private DispatcherTimer travlinCountDown;
         private double arrivalTime;
         private double arrivalTimeInitiale;
+        public Planet planetLeft;
         static private MotherPlanet motherPlanet;
         static private Ship lastShipSelected = null;
 
@@ -64,6 +65,7 @@ namespace WheatAndTurboReactors
                     break;
             }
             planetShip = motherPlanet;
+            planetLeft = motherPlanet;
             isTravlin = false;
         }
 
@@ -108,10 +110,11 @@ namespace WheatAndTurboReactors
             isTravlin = true;
             System.Threading.ThreadPool.QueueUserWorkItem(delegate(object obj)
             {
-                double distance = ((startPlanet.x - arrivalPlanet.x) * (startPlanet.x - arrivalPlanet.x) + (startPlanet.y - arrivalPlanet.x) * (startPlanet.y - arrivalPlanet.x));
-                arrivalTimeInitiale = distance * 10; 
+                double distance = ((startPlanet.x - arrivalPlanet.x) * (startPlanet.x - arrivalPlanet.x) + (startPlanet.y - arrivalPlanet.y) * (startPlanet.y - arrivalPlanet.y));
+                arrivalTimeInitiale = distance * 40; 
                 travlinCountDown.Interval = new TimeSpan(1000);
                 arrivalTime = arrivalTimeInitiale;
+                planetLeft = startPlanet;
                 travlinCountDown.Start();
                 //Thread.Sleep((int)arrivalTimeInitiale);
                 
@@ -135,6 +138,11 @@ namespace WheatAndTurboReactors
         public double ArrivalTime
         {
             get { return arrivalTime; }
+        }
+
+        public double ArrivalTimeInitiale
+        {
+            get { return arrivalTimeInitiale; }
         }
 
         public int ContainerMax

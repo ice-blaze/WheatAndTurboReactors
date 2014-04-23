@@ -78,8 +78,20 @@ namespace WheatAndTurboReactors
             {
 
                 canvas.Children.Remove(rectangle);
-                Canvas.SetLeft(rectangle, ship.PlanetShip.x);
-                Canvas.SetTop(rectangle, ship.PlanetShip.y);
+
+                double xi = -(ship.PlanetShip.x - ship.planetLeft.x);
+                double yi = -(ship.PlanetShip.y - ship.planetLeft.y);
+                double x = -(ship.PlanetShip.x - ship.planetLeft.x);
+                double y = -(ship.PlanetShip.y - ship.planetLeft.y);
+
+                double rapport = (double)ship.ArrivalTime / (double)ship.ArrivalTimeInitiale;
+
+                x *= rapport;
+                y *= rapport;
+
+
+                Canvas.SetLeft(rectangle, ship.planetLeft.x + x - xi);
+                Canvas.SetTop(rectangle, ship.planetLeft.y + y - yi);
 
                 RotateTransform rotateTransform1 = new RotateTransform(rotationAngle, size/2, size/2);
                 rectangle.RenderTransform = rotateTransform1;
