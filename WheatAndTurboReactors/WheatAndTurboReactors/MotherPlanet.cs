@@ -17,6 +17,7 @@ namespace WheatAndTurboReactors
         int wheatNorm, diamondNorm, turboReactorNorm;
         public double wheatGain;
         public Ellipse planetImage;
+        public const double wheatGainIncrement = 0.2;
         
 
         public MotherPlanet(string _name, int _x, int _y, int _wheat, int _diamond, int _turboReactors) : base(_name, _x, _y, _wheat, _diamond, _turboReactors)
@@ -48,12 +49,12 @@ namespace WheatAndTurboReactors
 
         public void addWheatGain()
         { 
-            double cost = wheatGain * 10;
+            double cost = wheatGain * 10 + 1;
             if(money > cost)
             {
                 Console.WriteLine(cost);
-                money -= cost;
-                wheatGain += wheatGain * 0.3;
+                money = (int)money - (int)cost;
+                wheatGain += wheatGain * wheatGainIncrement;
             }
         }
 

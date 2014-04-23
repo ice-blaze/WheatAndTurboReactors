@@ -61,7 +61,7 @@ namespace WheatAndTurboReactors
             turboReactorLabel.Content = "turbo reactor: " + minimap.getMotherPlanet().TurboReactors;
 
             currentlyShownPlanet.updateView();
-            foreignWheatLabel.Content = "wheat: " + currentlyShownPlanet.Wheat;
+            foreignWheatLabel.Content = "wheat: " + (int)currentlyShownPlanet.Wheat;
             foreignDiamondLabel.Content = "diamond: " + currentlyShownPlanet.Diamond;
             foreignTurboReactorLabel.Content = "turbo reactors: " + currentlyShownPlanet.TurboReactors;
 

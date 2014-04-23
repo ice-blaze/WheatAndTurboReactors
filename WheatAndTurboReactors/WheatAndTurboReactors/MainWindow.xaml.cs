@@ -34,6 +34,7 @@ namespace WheatAndTurboReactors
         DispatcherTimer animationTimer;
         double rotationAngle;
         const int size = 20;
+        GameLogic gameLogic;
 
         public MainWindow()
         {
@@ -113,7 +114,7 @@ namespace WheatAndTurboReactors
             this.canvas = sender as Canvas;
             Canvas canvas = sender as Canvas;
             minimap.initMinimap(canvas, this);
-            GameLogic gameLogic = new GameLogic(this, minimap);
+            gameLogic = new GameLogic(this, minimap);
             minimap.setGameLogic(gameLogic);
 
         }
@@ -296,6 +297,8 @@ namespace WheatAndTurboReactors
         private void boughtProduction(object sender, RoutedEventArgs e)
         {
             minimap.getMotherPlanet().addWheatGain();
+            gameLogic.updateLabels();
+            
         }
 
 
@@ -308,6 +311,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.buyDiamond();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnBuyWheat(object sender, RoutedEventArgs e)
@@ -319,6 +323,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.buyWheat();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnBuyTurboReactors(object sender, RoutedEventArgs e)
@@ -330,6 +335,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.buyTurboReactors();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnSellDiamond(object sender, RoutedEventArgs e)
@@ -341,6 +347,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.sellDiamond();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnSellWheat(object sender, RoutedEventArgs e)
@@ -352,6 +359,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.sellWheat();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void btnSellTurboReactors(object sender, RoutedEventArgs e)
@@ -363,6 +371,7 @@ namespace WheatAndTurboReactors
             }
             Ship.LastShipSelected.PlanetShip.sellTurboReactors();
             shipShow();
+            gameLogic.updateLabels();
         }
 
         private void messageBoxNoShip()
