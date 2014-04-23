@@ -47,8 +47,8 @@ namespace WheatAndTurboReactors
         {
             if(MotherPlanet.Money >= diamondPrice)
             {
+                if (!Ship.LastShipSelected.addDiamond()) { return; }
                 MotherPlanet.Money -= (int)diamondPrice;
-                Ship.LastShipSelected.addDiamond();
                 diamondPrice += diamondPrice * diamondPriceVariation*10;
                 updateView();
             }
@@ -58,8 +58,8 @@ namespace WheatAndTurboReactors
         {
             if(MotherPlanet.Money >= wheatPrice)
             {
+                if (!Ship.LastShipSelected.addWheat()) { return; }
                 MotherPlanet.Money -= (int)wheatPrice;
-                Ship.LastShipSelected.addWheat();
                 wheatPrice += wheatPrice * wheatPriceVariation*10;
                 updateView();
             }
@@ -69,8 +69,8 @@ namespace WheatAndTurboReactors
         {
             if (MotherPlanet.Money >= turboReactorPrice)
             {
+                if (!Ship.LastShipSelected.addTurboReactors()) { return; }
                 MotherPlanet.Money -= (int)turboReactorPrice;
-                Ship.LastShipSelected.addTurboReactors();
                 turboReactorPrice += turboReactorPrice * turboReactorPriceVariation*10;
                 updateView();
             }
