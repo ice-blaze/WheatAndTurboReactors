@@ -205,6 +205,7 @@ namespace WheatAndTurboReactors
             if(nameInput.Contains(" "))
             {
                 MessageBox.Show("Choose a better name... (no sapces)", "Naming error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ((TextBox)this.FindName("BuyShipTextBox")).Focus();
                 return false;
             }
 
@@ -223,7 +224,12 @@ namespace WheatAndTurboReactors
             Button newBtn = new Button();
             newBtn.Content = nameInput;
             newBtn.Click += shipShow;
-            shipButtons.Add(newBtn); 
+            Style style = Application.Current.FindResource("SwagButton") as Style;
+            newBtn.Style = style;
+            newBtn.Margin = new Thickness(5);
+            newBtn.Padding = new Thickness(7);
+            shipButtons.Add(newBtn);
+            
             WrapPanel wrap = (WrapPanel)this.FindName("ShipsPanel");
             wrap.Children.Add(newBtn);
 
