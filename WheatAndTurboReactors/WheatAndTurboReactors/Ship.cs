@@ -237,13 +237,18 @@ namespace WheatAndTurboReactors
                 Console.WriteLine(MotherPlanet.Money);
                 if(MotherPlanet.Money >= smallMoneyPrice && motherPlanet.TurboReactors >= smallReactorPrice)
                 {
+                    MotherPlanet.Money -= smallMoneyPrice;
+                    MotherPlanet.TurboReactors -= smallReactorPrice;
                     return true;
                 }
             }
             else if(size.Equals("Medium"))
             {
+
                 if (MotherPlanet.Money >= mediumMoneyPrice && motherPlanet.TurboReactors >= mediumReactorPrice)
                 {
+                    MotherPlanet.Money -= mediumMoneyPrice;
+                    MotherPlanet.TurboReactors -= mediumReactorPrice;
                     return true;
                 }
             }
@@ -251,6 +256,8 @@ namespace WheatAndTurboReactors
             {
                 if (MotherPlanet.Money >= bigMoneyPrice && motherPlanet.TurboReactors >= bigReactorPrice)
                 {
+                    MotherPlanet.Money -= bigMoneyPrice;
+                    MotherPlanet.TurboReactors -= bigReactorPrice;
                     return true;
                 }
             }

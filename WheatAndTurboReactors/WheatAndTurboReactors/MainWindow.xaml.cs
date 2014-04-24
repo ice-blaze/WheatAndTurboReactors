@@ -268,6 +268,7 @@ namespace WheatAndTurboReactors
                 Ship ship = new Ship(size, nameInput);
                 ships.Add(ship);
 
+
                 Button newBtn = new Button();
                 newBtn.Content = nameInput;
                 newBtn.Click += shipShow;

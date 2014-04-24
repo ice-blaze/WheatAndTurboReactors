@@ -27,7 +27,7 @@ namespace WheatAndTurboReactors
             money = 0;
             wheatGain = 0;
             // test
-            money = 1000;
+            money = 100000;
             wheat = diamond = turboReactors = 10000;
             //end test
             brush = new SolidColorBrush(Colors.Red);
