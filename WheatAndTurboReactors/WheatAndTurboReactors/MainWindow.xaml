@@ -13,8 +13,8 @@
             </Canvas.Background>
             <Button x:Name="improve_wheat_production" Content="improve wheat production" Click="boughtProduction" VerticalAlignment="Bottom" Height="125" HorizontalAlignment="Right" Width="120" Style="{StaticResource SwagButton}" Margin="0" Canvas.Left="372" Canvas.Top="10" />
             <Label x:Name="moneyLabel" Content="Label" Canvas.Left="35" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
-            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="181" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
-            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="181" Canvas.Top="78" Foreground="#FFFF4600" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="20"/>
+            <Label x:Name="diamondLabel" Content="Label" Canvas.Left="163" Canvas.Top="30" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
+            <Label x:Name="turboReactorLabel" Content="Label" Canvas.Left="163" Canvas.Top="78" Foreground="#FFFF4600" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="20"/>
             <Label x:Name="wheatLabel" Content="Label" Canvas.Left="35" Canvas.Top="78" Foreground="#FFFF4600" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont"/>
         </Canvas>
 
@@ -26,8 +26,6 @@
                 <Grid.Background>
                     <ImageBrush ImageSource="Backgrounds/buyship_panel.png"/>
                 </Grid.Background>
-                <!--<Button Grid.Row="0" Grid.Column="1">Buy new ships</Button>
-                <Button Grid.Row="0" Grid.Column="1">CUCU</Button>-->
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -39,10 +37,6 @@
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Margin" Value="10" />
                                 <Setter Property="Padding" Value="10" />
-                                <!--<Setter Property="Width" Value="70" />
-                                <Setter Property="Height" Value="70"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                                <Setter Property="VerticalContentAlignment" Value="Center"/>-->
                             </Style>
                         </WrapPanel.Resources>
 
@@ -110,9 +104,7 @@
                     <Button x:Name="sellWheatBtn" Grid.Column="1" Grid.Row="3" Content="Wheat" Click="btnSellWheat" Style="{StaticResource SwagButton}" PreviewMouseDown="sellWheatBtn_PreviewMouseDown" PreviewMouseUp="sellWheatBtn_PreviewMouseUp"/>
                     <Button x:Name="sellTurboReactorsBtn" Grid.Column="2" Grid.Row="3" Content="reactors" Click="btnSellTurboReactors"  Style="{StaticResource SwagButton}" PreviewMouseDown="sellTurboReactorsBtn_PreviewMouseDown" PreviewMouseUp="sellTurboReactorsBtn_PreviewMouseUp"/>
                 </Grid>
-
             </StackPanel>
-
         </Canvas>
 
         <Canvas Name="minimapCanvas" MouseDown="MiniMap_Canvas_MouseDown" Height="516" VerticalAlignment="Top" HorizontalAlignment="Left" Width="734" Loaded="Minimap_Canvas_Loaded">
@@ -134,13 +126,13 @@
                 <Button Content="Buy Medium" Width="153" Canvas.Left="429" Canvas.Top="201" Height="116" Click="Buy_Ships_Medium_Click" Style="{StaticResource SwagButton}"/>
                 <Button Content="Buy Big" Width="153" Canvas.Left="795" Canvas.Top="201" Height="116" Click="Buy_Ships_Big_Click" Style="{StaticResource SwagButton}"/>
                 <Button Content="Cancel" Canvas.Left="873" Canvas.Top="362" Width="75" Click="Buy_Ships_Cancel_Click" Style="{StaticResource SwagButton}"/>
-                <TextBox Name="BuyShipTextBox" Height="35" Canvas.Left="336" TextWrapping="Wrap" Canvas.Top="110" Width="342" FontSize="20"/>
-                <Label Content="20 Turbo Reactors" Canvas.Left="839" Canvas.Top="171"/>
-                <Label Content="1000$" Canvas.Left="430" Canvas.Top="171" RenderTransformOrigin="0.956,1.959"/>
-                <Label Content="5000$" Canvas.Left="796" Canvas.Top="171"/>
-                <Label Content="1 Turbo Reactors" Canvas.Left="113" Canvas.Top="171"/>
-                <Label Content="10 Turbo Reactors" Canvas.Left="472" Canvas.Top="171"/>
-                <Label Content="200$" Canvas.Left="70" Canvas.Top="171"/>
+                <TextBox Name="BuyShipTextBox" Height="28" Canvas.Left="336" Canvas.Top="110" Width="342" FontSize="20" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" MaxLines="1" MaxLength="20" TextAlignment="Center"/>
+                <Label Content="20 Turbo Reactors" Canvas.Left="823" Canvas.Top="171" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="16"/>
+                <Label Content="1000$" Canvas.Left="401" Canvas.Top="171" RenderTransformOrigin="0.956,1.959" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="16"/>
+                <Label Content="5000$" Canvas.Left="762" Canvas.Top="171" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="16"/>
+                <Label Content="1 Turbo Reactors" Canvas.Left="101" Canvas.Top="171" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="16"/>
+                <Label Content="10 Turbo Reactors" Canvas.Left="452" Canvas.Top="171" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="16"/>
+                <Label Content="200$" Canvas.Left="49" Canvas.Top="171" FontFamily="/WheatAndTurboReactors;component/fonts/#SquareFont" FontSize="16"/>
             </Canvas>
         </Canvas>
 

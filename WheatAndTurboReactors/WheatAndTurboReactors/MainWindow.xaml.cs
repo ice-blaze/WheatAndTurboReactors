@@ -33,6 +33,7 @@ namespace WheatAndTurboReactors
         DispatcherTimer gridTimer;
         DispatcherTimer animationTimer;
         DispatcherTimer repeaterTimer;
+        DispatcherTimer turboRectorSwapName;
         double rotationAngle;
         const int size = 20;
         GameLogic gameLogic;
@@ -46,6 +47,10 @@ namespace WheatAndTurboReactors
             gridTimer.Interval = new TimeSpan(0, 0, 0);
             gridTimer.Start();
 
+            turboRectorSwapName = new DispatcherTimer();
+            turboRectorSwapName.Tick += new EventHandler(turboSwap);
+            turboRectorSwapName.Interval = new TimeSpan(0,0,0, 0,900);
+            turboRectorSwapName.Start();
 
             rectangle = new Rectangle();
 
@@ -66,6 +71,21 @@ namespace WheatAndTurboReactors
             IntroCanvas.Margin = new Thickness(0, 0, IntroCanvas.Margin.Right, IntroCanvas.Margin.Bottom);
             
 
+        }
+
+        private void turboSwap(object sender, EventArgs e)
+        {
+            Button btnTurboSell = this.FindName("sellTurboReactorsBtn") as Button;
+            Button btnTurboBuy = this.FindName("buyTurboReactorBtn") as Button;
+
+            if(btnTurboBuy.Content == "reactors")
+            {
+                btnTurboSell.Content = btnTurboBuy.Content = "turbo";
+            }
+            else
+            {
+                btnTurboSell.Content = btnTurboBuy.Content = "reactors";
+            }
         }
 
         private void rotateRectangle(object sender, EventArgs e)
