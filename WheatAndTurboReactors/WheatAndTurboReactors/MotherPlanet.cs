@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -25,6 +26,10 @@ namespace WheatAndTurboReactors
             
             money = 0;
             wheatGain = 0;
+            // test
+            money = 1000;
+            wheat = diamond = turboReactors = 10000;
+            //end test
             brush = new SolidColorBrush(Colors.Red);
             base.planetImage.Fill = brush;
             base.discovered = true;
@@ -62,8 +67,8 @@ namespace WheatAndTurboReactors
         {
             if (diamond > 0) 
             {
+                if (!Ship.LastShipSelected.addDiamond()) { return; }
                 diamond--;
-                Ship.LastShipSelected.addDiamond(); //TODO messagebox if addDiamond returns false
             }
         }
 
@@ -71,9 +76,9 @@ namespace WheatAndTurboReactors
         {
             if (wheat > 0)
             {
-                Console.WriteLine("pass");
+                if (!Ship.LastShipSelected.addWheat()) { return; }
+                //Console.WriteLine("pass");
                 wheat--;
-                Ship.LastShipSelected.addWheat(); //TODO messagebox if addDiamond returns false
             }
         }
 
@@ -81,8 +86,8 @@ namespace WheatAndTurboReactors
         {
             if (turboReactors > 0)
             {
+                if(!Ship.LastShipSelected.addTurboReactors()) { return; }
                 turboReactors--;
-                Ship.LastShipSelected.addTurboReactors(); //TODO messagebox if addDiamond returns false
             }
         }
 

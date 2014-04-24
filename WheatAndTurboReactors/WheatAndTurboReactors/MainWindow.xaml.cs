@@ -357,7 +357,6 @@ namespace WheatAndTurboReactors
             button.Content = "improve wheat production for " + cost + "$";
             minimap.getMotherPlanet().addWheatGain();
             gameLogic.updateLabels();
-            
         }
 
 
@@ -387,7 +386,7 @@ namespace WheatAndTurboReactors
 
         private void btnBuyTurboReactors(object sender, RoutedEventArgs e)
         {
-            if (Ship.LastShipSelected == null)
+            if (Ship.LastShipSelected == null )
             {
                 messageBoxNoShip();
                 return;
@@ -496,6 +495,7 @@ namespace WheatAndTurboReactors
 
         private void buyWheatBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            resetTimer();
             repeaterTimer.Tick += new EventHandler(btnBuyW);
             repeaterTimer.Start();
         }
@@ -507,6 +507,7 @@ namespace WheatAndTurboReactors
 
         private void buyDiamondBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            resetTimer();
             repeaterTimer.Tick += new EventHandler(btnBuyDiamond);
             repeaterTimer.Start();
         }
@@ -523,6 +524,7 @@ namespace WheatAndTurboReactors
 
         private void buyTurboReactorBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            resetTimer();
             repeaterTimer.Tick += new EventHandler(btnBuyTurboReactors);
             repeaterTimer.Start();
         }
@@ -539,6 +541,7 @@ namespace WheatAndTurboReactors
 
         private void sellDiamondBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            resetTimer();
             repeaterTimer.Tick += new EventHandler(btnSellDiamond);
             repeaterTimer.Start();
         }
@@ -555,6 +558,7 @@ namespace WheatAndTurboReactors
 
         private void sellWheatBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            resetTimer();
             repeaterTimer.Tick += new EventHandler(btnSellWheat);
             repeaterTimer.Start();
         }
@@ -571,6 +575,7 @@ namespace WheatAndTurboReactors
 
         private void sellTurboReactorsBtn_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+            resetTimer();
             repeaterTimer.Tick += new EventHandler(btnSellTurboReactors);
             repeaterTimer.Start();
         }
@@ -598,6 +603,16 @@ namespace WheatAndTurboReactors
         private void Window_LostMouseCapture(object sender, MouseEventArgs e)
         {
             repeaterTimer.Stop();
+        }
+
+        private void resetTimer()
+        {
+            repeaterTimer.Tick -= btnBuyDiamond;
+            repeaterTimer.Tick -= btnBuyTurboReactors;
+            repeaterTimer.Tick -= btnBuyW;
+            repeaterTimer.Tick -= btnSellDiamond;
+            repeaterTimer.Tick -= btnSellTurboReactors;
+            repeaterTimer.Tick -= btnSellWheat;
         }
 
 
