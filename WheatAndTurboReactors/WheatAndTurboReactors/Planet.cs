@@ -143,7 +143,8 @@ namespace WheatAndTurboReactors
 
         public int TurboReactors
         {
-            get { return turboReactors; }            
+            get { return turboReactors; }
+            set { turboReactors = value; }
         }
 
         public String Description
