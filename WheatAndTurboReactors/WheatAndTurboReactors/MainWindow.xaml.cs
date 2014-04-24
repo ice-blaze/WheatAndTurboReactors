@@ -62,7 +62,8 @@ namespace WheatAndTurboReactors
             repeaterTimer = new DispatcherTimer();
             repeaterTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
 
-
+            //Canvas introCanvas = this.FindName("introCanvas") as Canvas;
+            IntroCanvas.Margin = new Thickness(0, 0, IntroCanvas.Margin.Right, IntroCanvas.Margin.Bottom);
             
 
         }
@@ -613,6 +614,11 @@ namespace WheatAndTurboReactors
             repeaterTimer.Tick -= btnSellDiamond;
             repeaterTimer.Tick -= btnSellTurboReactors;
             repeaterTimer.Tick -= btnSellWheat;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            IntroCanvas.Margin = new Thickness(3000,3000,IntroCanvas.Margin.Right,IntroCanvas.Margin.Bottom);
         }
 
 

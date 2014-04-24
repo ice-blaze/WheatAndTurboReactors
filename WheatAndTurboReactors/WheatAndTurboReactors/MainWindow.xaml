@@ -97,18 +97,18 @@
                         <RowDefinition Height="23" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="70" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Buy :" Style="{StaticResource SwagLabel}"/>
                     <Button x:Name="buyDiamondBtn" Grid.Column="0" Grid.Row="1" Content="Diamond" Click="btnBuyDiamond" Style="{StaticResource SwagButton}" PreviewMouseDown="buyDiamondBtn_PreviewMouseDown" PreviewMouseUp="buyDiamondBtn_PreviewMouseUp"/>
                     <Button x:Name="buyWheatBtn" Grid.Column="1" Grid.Row="1" Content="Wheat" Style="{StaticResource SwagButton}" PreviewMouseDown="buyWheatBtn_PreviewMouseDown" PreviewMouseUp="buyWheatBtn_PreviewMouseUp" Click="btnBuyWheat"/>
-                    <Button x:Name="buyTurboReactorBtn" Grid.Column="2" Grid.Row="1" Content="Turbo reactors" Click="btnBuyTurboReactors" Style="{StaticResource SwagButton}" PreviewMouseDown="buyTurboReactorBtn_PreviewMouseDown" PreviewMouseUp="buyTurboReactorBtn_PreviewMouseUp"/>
+                    <Button x:Name="buyTurboReactorBtn" Grid.Column="2" Grid.Row="1" Content="reactors" Click="btnBuyTurboReactors" Style="{StaticResource SwagButton}" PreviewMouseDown="buyTurboReactorBtn_PreviewMouseDown" PreviewMouseUp="buyTurboReactorBtn_PreviewMouseUp"/>
                     <Label Grid.Column="0" Grid.Row="2" Content="Sell :" Style="{StaticResource SwagLabel}" />
                     <Button x:Name="sellDiamondBtn" Grid.Column="0" Grid.Row="3" Content="Diamond" Click="btnSellDiamond" Style="{StaticResource SwagButton}" PreviewMouseDown="sellDiamondBtn_PreviewMouseDown" PreviewMouseUp="sellDiamondBtn_PreviewMouseUp"/>
                     <Button x:Name="sellWheatBtn" Grid.Column="1" Grid.Row="3" Content="Wheat" Click="btnSellWheat" Style="{StaticResource SwagButton}" PreviewMouseDown="sellWheatBtn_PreviewMouseDown" PreviewMouseUp="sellWheatBtn_PreviewMouseUp"/>
-                    <Button x:Name="sellTurboReactorsBtn" Grid.Column="2" Grid.Row="3" Content="Turbo reactors" Click="btnSellTurboReactors"  Style="{StaticResource SwagButton}" PreviewMouseDown="sellTurboReactorsBtn_PreviewMouseDown" PreviewMouseUp="sellTurboReactorsBtn_PreviewMouseUp"/>
+                    <Button x:Name="sellTurboReactorsBtn" Grid.Column="2" Grid.Row="3" Content="reactors" Click="btnSellTurboReactors"  Style="{StaticResource SwagButton}" PreviewMouseDown="sellTurboReactorsBtn_PreviewMouseDown" PreviewMouseUp="sellTurboReactorsBtn_PreviewMouseUp"/>
                 </Grid>
 
             </StackPanel>
@@ -142,6 +142,36 @@
                 <Label Content="10 Turbo Reactors" Canvas.Left="472" Canvas.Top="171"/>
                 <Label Content="200$" Canvas.Left="70" Canvas.Top="171"/>
             </Canvas>
+        </Canvas>
+
+        <Canvas x:Name="IntroCanvas" HorizontalAlignment="Left" Height="672" VerticalAlignment="Top" Width="1008" Margin="1323,-444,-1313,0" Background="#CC000000">
+            <Canvas x:Name="EmprorCanvas" Height="360" Width="471" Canvas.Left="282">
+                <Canvas.Background>
+                    <ImageBrush ImageSource="Backgrounds/empror.png"/>
+                </Canvas.Background>
+                <Canvas.Triggers>
+                    <EventTrigger RoutedEvent="Canvas.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="EmprorCanvas" 
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.2" To="0.8" Duration="0:0:3" 
+                                    AutoReverse="True" RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Canvas.Triggers>
+            </Canvas>
+            <Canvas MaxHeight="175" MaxWidth="909" Canvas.Top="401" Canvas.Left="60">
+                <TextBlock MaxHeight="175" MaxWidth="909" FontSize="30px" Style="{StaticResource SwagTextBlock}" Canvas.Top="-24">
+                    In a universe where every planet is under the dominance of 
+                    a powerful dictator, you live a simple life with your wife on a farm-planet.
+                    One day, the dictator decided that your wife shall now be his and took her away.
+                    It is now your duty as a wheat farmer to get rich and buy her back!
+                </TextBlock>
+            </Canvas>
+            <Button Content="Start" Canvas.Left="361" Canvas.Top="567" Height="81" Width="322" Style="{StaticResource SwagButton}" Margin="0" Click="Button_Click"/>
         </Canvas>
     </Grid>
 </Window>
