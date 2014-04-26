@@ -35,7 +35,19 @@ namespace WheatAndTurboReactors
         public static double Money
         {
             get { return money; }
-            set { money = value; }
+            set 
+            { 
+                money = value; 
+
+                if(money>=2000)
+                {
+                    MessageBoxResult result = MessageBox.Show("The princess is rescued :)", "You won !!!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
         }
 
         public void addWheat(double _wheat)

@@ -117,8 +117,8 @@ namespace WheatAndTurboReactors
             isTravlin = true;
             System.Threading.ThreadPool.QueueUserWorkItem(delegate(object obj)
             {
-                double distance = ((startPlanet.x - arrivalPlanet.x) * (startPlanet.x - arrivalPlanet.x) + (startPlanet.y - arrivalPlanet.y) * (startPlanet.y - arrivalPlanet.y));
-                arrivalTimeInitiale = distance * 40; 
+                double distance = Math.Sqrt(((startPlanet.x - arrivalPlanet.x) * (startPlanet.x - arrivalPlanet.x) + (startPlanet.y - arrivalPlanet.y) * (startPlanet.y - arrivalPlanet.y)));
+                arrivalTimeInitiale = distance * 4000; 
                 travlinCountDown.Interval = new TimeSpan(1000);
                 arrivalTime = arrivalTimeInitiale;
                 planetLeft = startPlanet;
