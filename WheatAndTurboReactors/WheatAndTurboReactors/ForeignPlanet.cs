@@ -8,8 +8,6 @@ namespace WheatAndTurboReactors
 {
     class ForeignPlanet : Planet
     {
-        // norms
-        // background text
         double wheatPrice, diamondPrice, turboReactorPrice;
         int wheatNorm, diamondNorm, turboReactorNorm;
         double diamondPriceVariation = 0.001;

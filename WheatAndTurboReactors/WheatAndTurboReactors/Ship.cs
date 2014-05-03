@@ -43,7 +43,6 @@ namespace WheatAndTurboReactors
         public const int bigReactorPrice = 20;
         public const int bigMoneyPrice = 5000;
 
-        // bitmap (imageloader?)
         public Ship(int _level, string _name = "NaN name")
         {
             level = _level;
@@ -123,10 +122,6 @@ namespace WheatAndTurboReactors
                 arrivalTime = arrivalTimeInitiale;
                 planetLeft = startPlanet;
                 travlinCountDown.Start();
-                //Thread.Sleep((int)arrivalTimeInitiale);
-                
-                //isTravlin = false;
-                //planetShip.setDiscovered(true);
             });
         }
 

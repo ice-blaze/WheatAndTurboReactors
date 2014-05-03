@@ -11,9 +11,6 @@ namespace WheatAndTurboReactors
 {
     class MotherPlanet: Planet
     {
-        //TODO wheat production, ship list
-        // norms
-        // background text
         static double money;
         int wheatNorm, diamondNorm, turboReactorNorm;
         public double wheatGain;
@@ -85,7 +82,6 @@ namespace WheatAndTurboReactors
             if (wheat > 0)
             {
                 if (!Ship.LastShipSelected.addWheat()) { return; }
-                //Console.WriteLine("pass");
                 wheat--;
             }
         }

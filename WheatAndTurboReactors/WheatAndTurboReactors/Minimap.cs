@@ -26,8 +26,6 @@ namespace WheatAndTurboReactors
         {
             parent = _parent;
 
-            //replace this by reading from a file
-            //-------------------------------------------------------------------------------------
             ForeignPlanet lonelyPlanet = new ForeignPlanet("lonely planet",150, 20, 2, 150, 50);
             ForeignPlanet farAwayPlanet = new ForeignPlanet("dark planet", 200, 200, 3, 200, 100);
             ForeignPlanet thisGuy = new ForeignPlanet("anus", 20, 35, 5, 130, 120);
@@ -100,8 +98,6 @@ namespace WheatAndTurboReactors
             et.addPlanetToLinks(loPlanet);
 
             motherPlanet.showDiscovered(canvas);
-
-            //-------------------------------------------------------------------------------------
             
             foreach (Planet planet in planetList)
             {
@@ -129,8 +125,6 @@ namespace WheatAndTurboReactors
                     Console.WriteLine("planet is clicked");
                     setPlanetHighlight(planet);
                     updateInformation(planet);
-                    //planet.setDiscovered(true);
-                    //drawDiscoveredPlanets(canvas);
 
                     //set the scale of the minimap to classic view
                     (canvas.RenderTransform as ScaleTransform).ScaleX = 1;
@@ -150,7 +144,6 @@ namespace WheatAndTurboReactors
                             return;
                         }
 
-                        //foreach(Planet planet in Ship.LastShipSelected.PlanetShip)
                         Planet oldPlanet = Ship.LastShipSelected.PlanetShip;
                         Ship.LastShipSelected.PlanetShip = planet;
                         Ship.LastShipSelected.startTrip(oldPlanet, planet);

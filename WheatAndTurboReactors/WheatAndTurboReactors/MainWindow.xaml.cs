@@ -471,9 +471,7 @@ namespace WheatAndTurboReactors
             myDoubleAnimation.From = 0.0;
             myDoubleAnimation.To = 1.0;
             myDoubleAnimation.AutoReverse = true;
-
-            //myDoubleAnimation.RepeatBehavior = RepeatBehavior.Forever;
-
+            
             for (double i = 0, j = 0; i < mainWidth; i += mainWidth / 10, j += 0.3)
             {
                 Line greenLine = new Line();
